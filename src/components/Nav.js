@@ -41,7 +41,7 @@ const Section = styled("a")`
   }
 `;
 
-export default function Nav(data) {
+export default function Nav({data}) {
   let temp = [];
   if (Array.isArray(data)) { 
     data.forEach((element,index)=> {
