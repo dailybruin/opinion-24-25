@@ -43,7 +43,7 @@ function App() {
       
       {/* {!isMobile && <NewLanding title={data.title} byline={data.byline} credits={data.image_credit}/>} */}
       {/* <LandingPage/>  */}
-      <Nav data={slidesArray}></Nav>
+      <Nav data={slidesArray}/>
       <a name={slidesArray[0]}>
         <SlideOne/>
       </a>
