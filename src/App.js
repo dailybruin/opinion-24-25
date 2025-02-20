@@ -1,9 +1,21 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Slide1 from './components/Slide1Desktop';
-import Slide2 from './components/Slide2Desktop';
+import Nav from "./components/Nav";
+import SlideOne from './components/SlideOne';
+import SlideTwo from "./components/SlideTwo";
+
+const Container = styled("div")`
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth;
+  
+
+`;
+
+let slidesArray = ["slide1","slide2"]
 
 function App() {
   const [ data, setData ] = useState(null);
@@ -14,13 +26,39 @@ function App() {
 		.then(res => setData(res.data['article.aml']))
   }, [])
 
-  return data && (
-    <div className="App">
+  // return data && (
+  //   <div className="App">
+  //     <Header/>
+  //     Hello Daily Bruin!
+  //     <Footer/>
+  //     <NavBar/>
+  //   </div>
+  // );
+  return (
+    (data &&
+     <>
+     {/* { } */}
+     <Container>
       <Header/>
-      Hello Daily Bruin!
-      <Slide1 article={data.articles[0]}/>
-      <Footer/>
-    </div>
+      
+      {/* {!isMobile && <NewLanding title={data.title} byline={data.byline} credits={data.image_credit}/>} */}
+      {/* <LandingPage/>  */}
+      <Nav data={slidesArray}></Nav>
+      <a name={slidesArray[0]}>
+        <SlideOne/>
+      </a>
+      
+      <a name={slidesArray[1]}>
+        <SlideTwo/>
+      </a>
+      
+      <Footer>
+        <h1>DAILY BRUIN</h1>
+        <p>Built with Suzy’s ♥ in Kerckhoff 118 by {data.developer_credits}. Designed by {data.designer_credits}.</p>
+      </Footer>
+      </Container> 
+      
+     </>)
   );
 }
 
