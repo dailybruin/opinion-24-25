@@ -3,7 +3,7 @@ import styled from "styled-components";
 import SalaryIcon from "../images/SalaryIcon.svg"
 import RequirementIcon from "../images/RequirementIcon.svg"
 import FullTimeIcon from "../images/FullTimeIcon.svg"
-import BylineIcon from "../images/BylineIcon.svg"
+import BylineIcon from "../images/BylineIcon10.svg"
 import Slide10Image from "../images/Slide10Image.png"
 
 const Background = styled.div`
@@ -142,6 +142,7 @@ const ArticleContainer = styled.div`
     box-sizing: border-box;
     padding: 2rem;
     text-align: left;
+    overflow-y: auto;
 `
 
 const ContentRow = styled.div`
