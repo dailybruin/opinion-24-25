@@ -1,0 +1,288 @@
+import React, {useState} from "react";
+import styled from "styled-components";
+import SearchIcon from "../images/SearchIcon.svg"
+import {ReactComponent as LeftArrow} from "../images/LeftArrow.svg"
+import {ReactComponent as RightArrow} from "../images/RightArrow.svg"
+import BylineIcon from "../images/BylineIcon11.svg"
+import HeartIcon from "../images/HeartIcon.svg"
+
+const Background = styled.div`
+    height: auto;
+    width: 100%;
+    background: #69937D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow-y: auto;
+`
+
+const Container = styled.div`
+    width: 21.4375rem;
+    height: 54.75rem;
+    border-radius: 1.5625rem;
+    background: #A0BEAE;
+    box-sizing: border-box;
+    padding: 1rem;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+`
+
+const TitleContainer = styled.div`
+    width: 21.1875rem;
+    height: 13rem;
+    background-color: #FFF;
+    border-radius: .75rem;
+    font-family: "Passion One";
+    display: flex;
+    align-items: center;
+    box-sixing: border-box;
+    margin: 1rem;
+    position: relative;
+
+    img {
+        position: absolute;
+        top: 1.5rem;
+        left: 1rem;
+    }
+`
+
+const Title = styled.div`
+    width: 14.4375rem;
+    height: 10.3125rem;
+    color: #547966;
+    font-family: "Passion One";
+    font-size: 1.875rem;
+    text-align: left;
+    margin-left: 5rem; 
+`
+
+const ContentContainer = styled.div`
+    width: 19.5625rem;
+    height: 31.875rem;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+`
+
+const BylineContainer = styled.div`
+    color: #000;
+    font-family: Baskerville;
+    font-size: 0.9375rem;
+    height: 2.5625rem;
+    width: auto;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+`
+
+const CommentContainer = styled.div`
+    width: 17.35144rem;
+    height: 1.60538rem;
+    background: rgba(207, 132, 142, 0.52);
+    margin: 1rem auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 1rem;
+    box-sizing: border-box;
+
+    img {
+        width: 1.16131rem;
+        height: 1.02469rem;
+    }
+`
+
+const Comment = styled.div`
+    width: 14.61894rem;
+    height: 1.02469rem;
+    border-radius: 0.5rem;
+    border: 2px solid #CF848E;
+    background: #FFF;
+    color: #000;
+    font-family: Baskerville;
+    font-size: 0.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    padding: 0 .5rem;
+`
+
+const ArticleContainer = styled.div`
+    width: 17.4375rem;
+    height: 24.3125rem;
+    border: 4px solid #CF848E;
+    color: #000;
+    font-family: Baskerville;
+    font-size: 0.75rem;
+    padding: 1rem;
+    text-align: left;
+    box-sizing: border-box;
+    margin: 0 1rem;
+    overflow-y: auto;
+`
+
+const CarouselContainer = styled.div`
+  position: relative;
+  width: 19.5625rem;
+  height: 20.1875rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #d9d9d9;
+`;
+
+const ImageContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(${(props) => props.image});
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  transition: opacity 0.5s ease-in-out;
+`;
+
+const Button = styled.button`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    fill: black; 
+    transition: fill 0.3s ease;
+  }
+
+  &:hover svg {
+    color: #69937D; 
+  }
+
+`
+
+const LeftButton = styled(Button)`
+  left: 1rem;
+  opacity: ${(props) => (props.disabled ? "0" : "1")};
+  pointer-events: ${(props) => (props.disabled ? "none" : "auto")};
+`;
+
+const RightButton = styled(Button)`
+  right: 1rem;
+  opacity: ${(props) => (props.disabled ? "0" : "1")};
+  pointer-events: ${(props) => (props.disabled ? "none" : "auto")};
+`;
+
+const Credit = styled.div`
+    color: #69937D;
+    font-family: Baskerville;
+    font-size: .75rem;
+    width: auto;
+    height: 1.125rem;
+    background: rgba(255, 255, 255, 0.44);
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    bottom: .5rem;
+    display: flex;
+`
+
+const PhotoCarousel = ({ images }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextImage = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  };
+
+  return (
+    <CarouselContainer>
+      <LeftButton onClick={prevImage} disabled={currentIndex === 0}>
+        <LeftArrow />
+      </LeftButton>
+
+      <ImageContainer image={images[currentIndex]} />
+
+      <RightButton onClick={nextImage} disabled={currentIndex === images.length - 1}>
+        <RightArrow />
+      </RightButton>
+
+      <Credit>{images[currentIndex].credit}</Credit>
+    </CarouselContainer>
+  );
+};
+
+const Slide11 = ({ props }) => {
+
+    const {
+        article_title = "TITLE OF THE STORY CAN GO HERE TITLE OF THE STORY CAN GO HERE TITLE OF THE",
+        article_url,
+        article_byline = "Tavian Williams",
+        article_img = [],
+        illustration_byline = []
+    } = props || {};
+
+    const images = article_img.map((img, index) => ({
+        image: img,
+        credit: illustration_byline[index] || "(Courtesy of NAME NAME/place)"
+    }));
+
+    return (
+        <Background>
+            <TitleContainer>
+                <img src={SearchIcon} />
+                <Title>{article_title}</Title>
+            </TitleContainer>
+            <Container>
+             <PhotoCarousel images={images.length > 0 ? images : [{ image: "", credit: "(Courtesy of NAME NAME/place)" }]}/>
+             <ContentContainer>
+                <BylineContainer>
+                    <img src={BylineIcon} />
+                    {article_byline}
+                </BylineContainer>
+                <ArticleContainer>
+                Lorem ipsum odor amet, consectetuer adipiscing elit. Per tortor duis sociosqu interdum pellentesque turpis. Ligula fames per id porta sed felis. Fermentum urna accumsan ligula convallis phasellus quis. Proin ipsum efficitur rutrum bibendum aptent non. Faucibus ac netus justo rutrum posuere sagittis libero ut.
+
+Hendrerit etiam nisi suspendisse justo amet. In felis nibh lacus efficitur platea leo nisl ac cubilia. Torquent efficitur natoque natoque quis aenean placerat; posuere justo congue. Maecenas molestie luctus conubia; orci condimentum dapibus est. At arcu sed id lacinia ornare lorem mauris. Eros sociosqu cursus suscipit metus sodales sem phasellus neque fermentum. Volutpat sagittis ex finibus potenti dis. Accumsan amet cubilia litora nascetur pellentesque malesuada.
+
+Leo congue hendrerit egestas nisi ex ipsum per tempor. Curae consequat diam accumsan aliquam suscipit lacus consectetur. Feugiat duis tempus pharetra suspendisse hendrerit senectus. Curabitur natoque tincidunt cubilia placerat est felis. Ligula nibh convallis elementum morbi est auctor orci scelerisque etiam. Est velit netus adipiscing aliquam nullam diam nisi.
+
+Feugiat mus parturient venenatis amet bibendum porttitor cursus aliquam. Quisque hac justo curae lectus conubia ante cubilia natoque. Ac primis conubia magnis accumsan sociosqu in fames. Orci accumsan eget montes sociosqu facilisis a. Diam dis leo suspendisse congue himenaeos inceptos curabitur. Magna vulputate justo ornare, blandit mus id ante.
+
+Litora ac sociosqu eleifend molestie nostra, nam porttitor viverra. Ac felis hac urna hac tincidunt. Semper mus curae luctus eu accumsan tempus. Rutrum litora metus vivamus feugiat conubia vestibulum sit vehicula himenaeos. Sapien consectetur elementum dolor ut; justo natoque habitant senectus? Gravida fusce accumsan porttitor fusce sociosqu nostra. Suscipit turpis magnis aliquam cras mattis laoreet maecenas erat eu.
+
+                </ArticleContainer>
+                <CommentContainer>
+                    <img src={HeartIcon} />
+                    <Comment>
+                        Leave a comment...
+                    </Comment>
+                </CommentContainer>
+             </ContentContainer>
+            </Container>
+        </Background>
+    )
+}
+
+export default Slide11;
