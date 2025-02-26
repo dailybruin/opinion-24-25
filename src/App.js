@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Slide11 from "./components/Slide11_Mobile";
+import Slide3 from "./components/Slide3";
 
 function App() {
   const [ data, setData ] = useState(null);
@@ -17,7 +17,7 @@ function App() {
     <div className="App">
       <Header/>
       Hello Daily Bruin!
-      <Slide11 article={data.articles[10]}/>
+      <Slide3 article={data.articles[2]}/>
       <Footer/>
     </div>
   );
