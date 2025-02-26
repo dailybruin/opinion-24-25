@@ -36,13 +36,13 @@ const NavItem = styled.div`
   cursor: pointer;
 `;
 
-/* White box for headline (SVG replacement) */
+/* White box for headline */
 const HeadlineContainer = styled.img`
   position: absolute;
   width: 20rem;
   left: 10%;
   top: 28%;
-  z-index: 1; /* Ensure it's above the background */
+  z-index: 1;
 `;
 
 /* Checkmark icon */
@@ -50,31 +50,35 @@ const CheckMark = styled.img`
   position: absolute;
   width: 4rem;
   left: 7%;
-  top: 25%; /* Position slightly above the white box */
-  z-index: 2; /* Ensure it appears above the white box */
+  top: 25%;
+  z-index: 2;
 `;
 
-/* Headline text */
+/* Headline text (Ensures text stays inside the box) */
 const HeadlineText = styled.div`
   position: absolute;
-  left: 12%;
-  top: 33%;
+  left: 11%;
+  top: 30%;
+  width: 18rem; /* Keeps text inside the white box */
+  height: 6rem; /* Set max height */
   font-family: "Passion One", sans-serif;
-  font-size: 3rem;
+  font-size: 2.2rem;
   color: #222;
   font-weight: bold;
   text-transform: uppercase;
+  text-align: center;
   line-height: 1.1;
-  width: 17rem;
-  z-index: 2; /* Ensure text is above white box */
+  white-space: normal;
+  word-wrap: break-word; /* Ensures long words wrap */
+  z-index: 2;
 `;
 
-/* White credit box (SVG replacement) */
+/* White credit box */
 const CreditBox = styled.img`
   position: absolute;
   width: 20rem;
   left: 10%;
-  top: 83%; /* Move below the white box */
+  top: 83%;
   z-index: 1;
 `;
 
@@ -86,7 +90,7 @@ const CreditText = styled.div`
   font-family: "Passion One", sans-serif;
   font-size: 2rem;
   color: #222;
-  z-index: 2; /* Ensure text is above credit box */
+  z-index: 2;
 `;
 
 /* Clipboard absolute positioning */
@@ -106,20 +110,24 @@ const Pen = styled.img`
   transform: rotate(-5deg);
 `;
 
-/* Clipboard text */
-const ClipboardText = styled.div`
+/* Scrollable clipboard text */
+const ClipboardTextContainer = styled.div`
   position: absolute;
   width: 25rem;
   top: 30%;
   left: 40%;
+  height: 20rem; /* Restrict height */
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-y: auto; /* Enables scrolling */
   font-family: "Baskervville", serif;
   font-size: 1rem;
   color: #333;
   line-height: 1.5;
-  z-index: 2; /* Ensure text is visible on clipboard */
+  z-index: 2;
 `;
 
-const Slide1Desktop = () => {
+const Slide1Desktop = ({ article }) => {
   return (
     <Background>
       {/* Top navigation bar */}
@@ -136,16 +144,18 @@ const Slide1Desktop = () => {
       {/* Clipboard Image */}
       <ClipboardImage src={ClipboardSVG} alt="Clipboard" />
 
-      {/* Clipboard Text */}
-      <ClipboardText>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-        lacinia, augue a faucibus varius, justo arcu vestibulum nunc, sit
-        amet sollicitudin mi felis et ligula. Fusce eu est vitae mi
-        porttitor congue. Curabitur in semper tortor. Integer vestibulum
-        molestie neque, eget consectetur enim venenatis eget. Integer
-        gravida, nisi nec pellentesque venenatis, ipsum justo aliquet
-        purus, vitae auctor lacus ante at lacus.
-      </ClipboardText>
+      {/* Scrollable Clipboard Text */}
+      <ClipboardTextContainer>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Per tortor
+            duis sociosqu interdum pellentesque turpis. Ligula fames per id
+            porta sed felis. Fermentum urna accumsan ligula convallis phasellus
+            quis. Proin ipsum efficitur rutrum bibendum aptent non. Faucibus ac
+            netus justo rutrum posuere sagittis libero ut.
+
+            Hendrerit etiam nisi suspendisse justo amet. In felis nibh lacus
+            efficitur platea leo nisl ac cubilia. Torquent efficitur natoque
+            natoque quis aenean placerat; posuere justo congue. Maecenas
+            molestie luctus conubia; orci condimentum dapibus est. At arcu sed
+            id lacinia ornare lorem mauris.</ClipboardTextContainer>
 
       {/* Pen */}
       <Pen src={PenIcon} alt="Pen" />
@@ -153,13 +163,11 @@ const Slide1Desktop = () => {
       {/* Headline Box */}
       <HeadlineContainer src={WhiteBoxSVG} alt="White Box" />
       <CheckMark src={CheckIcon} alt="Check" />
-      <HeadlineText>
-        HEADLINE CAN GO HERE HERE IS HEADLINE SPACE
-      </HeadlineText>
+      <HeadlineText>{article.article_title}</HeadlineText>
 
       {/* Credit Box */}
       <CreditBox src={WhiteCreditSVG} alt="Credit Box" />
-      <CreditText>Lex Wang</CreditText>
+      <CreditText>{article.article_byline}</CreditText>
     </Background>
   );
 };
