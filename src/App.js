@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Slide3 from "./components/Slide3";
+import Slide3 from "./components/Slide3_Mobile";
 
 function App() {
   const [ data, setData ] = useState(null);
