@@ -8,7 +8,7 @@ import WhiteBoxSVG from "../images/whiteboxmobile.svg";
 import WhiteCreditSVG from "../images/creditbox.svg";
 
 const Background = styled.div`
-  height: 100vh;
+  height: 150vh;
   width: 100%;
   background-color: #3C3562;
   display: flex;
@@ -22,9 +22,8 @@ const Background = styled.div`
 /* White box for headline */
 const HeadlineContainer = styled.img`
   position: absolute;
-  width: 90%; /* Make it wide */
-  height: 11rem;
-  top: 3%;
+  width: 80%; /* Make it wide */
+  top: 4%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
@@ -33,9 +32,9 @@ const HeadlineContainer = styled.img`
 /* Checkmark icon */
 const CheckMark = styled.img`
   position: absolute;
-  width: 2.5rem;
-  left: 9%;
-  top: 1%;
+  width: 3.5rem;
+  left: 7%;
+  top: 2%;
   z-index: 2;
 `;
 
@@ -48,7 +47,7 @@ const HeadlineText = styled.div`
   width: 65%; /* Ensures it stays within the white box */
   height: 5rem; /* Limit height */
   font-family: "Passion One", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: #222;
   font-weight: bold;
   text-transform: uppercase;
@@ -62,9 +61,8 @@ const HeadlineText = styled.div`
 /* White credit box */
 const CreditBox = styled.img`
   position: absolute;
-  width: 68%;
-  height: 9rem;
-  top: 22%;
+  width: 80%;
+  top: 28%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
@@ -73,11 +71,11 @@ const CreditBox = styled.img`
 /* Credit text */
 const CreditText = styled.div`
   position: absolute;
-  top: 29%;
+  top: 30%;
   left: 50%;
   transform: translateX(-50%);
   font-family: "Passion One", sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   color: #222;
   text-align: center;
   z-index: 2;
@@ -87,7 +85,7 @@ const CreditText = styled.div`
 const ClipboardImage = styled.img`
   position: absolute;
   width: 74%;
-  top: 36%;
+  top: 39%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
@@ -97,10 +95,10 @@ const ClipboardImage = styled.img`
 const ClipboardTextContainer = styled.div`
   position: absolute;
   width: 54%;
-  top: 51%;
+  top: 54%;
   left: 50%;
   transform: translateX(-50%);
-  height: 18rem; /* Restrict height */
+  height: 23rem; /* Restrict height */
   background: rgba(255, 255, 255, 0.8); /* Optional background for readability */
   padding: 0.8rem;
   border-radius: 0.5rem;
@@ -115,9 +113,9 @@ const ClipboardTextContainer = styled.div`
 /* Pen absolute positioning */
 const Pen = styled.img`
   position: absolute;
-  width: 65%;
+  width: 70%;
   top: 24%;
-  left: 55%;
+  left: 53%;
   transform: rotate(-5deg);
   z-index: 2;
 `;
