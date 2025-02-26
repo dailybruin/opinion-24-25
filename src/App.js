@@ -4,16 +4,21 @@ import Nav from "./components/Nav";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import PageNavButtons from "./components/PageNavButtons";
+import Slide3 from "./components/Slide3.js";
+import Slide9 from "./components/Slide9.js";
+import Slide10 from "./components/Slide10.js";
+import Slide11 from "./components/Slide11.js";
 
 function App() {
+  const [ data, setData ] = useState(null);
   const [currentSlide, setCurrentSlide] = useState(1);
   const slideRef = useRef(null);
-  const data = ["slide1", "slide2", "slide3", "slide4", "slide5", "slide6", "slide7", "slide8", "slide9", "slide10", "slide11"];
+  const names = ["Q&A", "CONFIDENCE", "JOURNAL", "SUPEREGO", "E-IDENTITY", "EXPEDITION", "HOBBY", "DEPRECATION", "PREJUDICE", "CAREER", "BODY"];
 
   const slideColors = [
     { bgColor: 'red', textColor: 'white' },
     { bgColor: 'green', textColor: 'white' },
-    { bgColor: 'blue', textColor: 'white' },
+    { bgColor: '#FBE5B6', textColor: '#547966' },
     { bgColor: 'yellow', textColor: 'black' },
     { bgColor: 'green', textColor: 'white' },
     { bgColor: 'purple', textColor: 'white' },
@@ -24,15 +29,15 @@ function App() {
     { bgColor: 'purple', textColor: 'white' },
   ];
 
-  const slides = [ SlideOne, SlideTwo, SlideThree, SlideFour, SlideFive, SlideSix, SlideSeven, SlideEight, SlideNine, SlideTen, SlideEleven ];
+  const slides = [ SlideOne, SlideTwo, Slide3, SlideFour, SlideFive, SlideSix, SlideSeven, SlideEight, Slide9, Slide10, Slide11 ];
 
   // NOTE: hard coded the data since <a> approach did not work with scrolling + nav bar color handling
 
-  // useEffect(() => {
-  //   fetch("https://kerckhoff.dailybruin.com/api/packages/flatpages/opinion-25")
-  //   .then(res => res.json())
-  //   .then(res => setData(res.data['article.aml']))
-  // }, [])
+  useEffect(() => {
+     fetch("https://kerckhoff.dailybruin.com/api/packages/flatpages/opinion-25")
+     .then(res => res.json())
+     .then(res => setData(res.data['article.aml']))
+  }, [])
 
 
   // 2 FUNCTIONS FOR SCROLLING EFFECT (USING WIDTH AND INDEX CONTROL)
@@ -56,16 +61,10 @@ function App() {
 
   return (
     (data &&
-      //      <>
-      //      {/* { } */}
-      //      <div>
-            
-      //       {/* {!isMobile && <NewLanding title={data.title} byline={data.byline} credits={data.image_credit}/>} */}
-      //       {/* <LandingPage/>  */}
     <div>
       <Header/>
       <Nav 
-        data={data}
+        data={names}
         currentSlide={currentSlide}
         setCurrentSlide={setCurrentSlide}
         handleTabClick={handleTabClick}
