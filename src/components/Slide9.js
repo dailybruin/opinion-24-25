@@ -71,6 +71,7 @@ const Circle1 = styled(Circle)`
     height: 46.302rem;
     border: 43px solid #B4CCFB;
     overflow: hidden;
+    background: rgba(255, 255, 255, 0.24);
 `
 
 const Circle2 = styled(Circle)`
@@ -124,16 +125,6 @@ const BackgroundImage1 = styled.div`
     z-index: -1;
     opacity: 1;
 
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 192, 203, 0.1);
-        pointer-events: none; 
-    }
 `
 const BackgroundImage2 = styled.div`
     width: 44.03106rem;
@@ -145,17 +136,6 @@ const BackgroundImage2 = styled.div`
     right: 15rem;
     z-index: -1;
     opacity: 1;
-
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 192, 203, 0.1);
-        pointer-events: none; 
-    }
 `
 
 const BackgroundImage3 = styled.div`
