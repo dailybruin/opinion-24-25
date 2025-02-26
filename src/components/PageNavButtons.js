@@ -3,13 +3,19 @@
 
 // PAGE NAVIGATION AT THE BOTTOM OF THE PAGE:
 
-const PageNavButtons = ({ currentSlide, setCurrentSlide }) => {
+const PageNavButtons = ({ currentSlide, setCurrentSlide, slideRef }) => {
 
   const prevPage = () => {
     if (currentSlide > 1) {
+      const slideWidth = slideRef.current.offsetWidth;
+      const scrollToPosition = (currentSlide - 2) * slideWidth; 
+      slideRef.current.scrollTo({
+        left: scrollToPosition,
+        behavior: "smooth",
+      });
       // window.location.href = `/#slide${currentSlide - 1}`;
       setCurrentSlide(currentSlide - 1);
-      window.location.hash = `#slide${currentSlide - 1}`;
+      // window.location.hash = `#slide${currentSlide - 1}`;
       console.log("prev page");
     }
   };
@@ -22,9 +28,16 @@ const PageNavButtons = ({ currentSlide, setCurrentSlide }) => {
 
   const nextPage = () => {
     if (currentSlide < 11) {
+      const slideWidth = slideRef.current.offsetWidth;
+      const scrollToPosition = currentSlide * slideWidth; 
+      slideRef.current.scrollTo({
+        left: scrollToPosition,
+        behavior: "smooth",
+      });
+
       // window.location.href = `/#slide${currentSlide + 1}`;
       setCurrentSlide(currentSlide + 1);
-      window.location.hash = `#slide${currentSlide + 1}`;
+      // window.location.hash = `#slide${currentSlide + 1}`;
       console.log("next page");
     }
   };
