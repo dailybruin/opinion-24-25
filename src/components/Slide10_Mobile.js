@@ -3,16 +3,17 @@ import styled from "styled-components";
 import SalaryIcon from "../images/SalaryIcon.svg"
 import RequirementIcon from "../images/RequirementIcon.svg"
 import FullTimeIcon from "../images/FullTimeIcon.svg"
-import BylineIcon from "../images/BylineIcon.svg"
+import BylineIcon from "../images/BylineIcon10.svg"
 import Slide10Image from "../images/Slide10Image.png"
 
 const Background = styled.div`
-    height: 100vh;
+    height: auto;
     width: 100%;
     background: #CE838E;
-    display: flex;
-    align-items: center;
+    flex-direction: column;
+    overflow-y: auto;
     justify-content: center;
+    align-items: center;
 `
 
 const Container = styled.div`
@@ -20,12 +21,14 @@ const Container = styled.div`
     height: 70rem;
     border-radius: 2.3125rem;
     background: #FBE6B7;
-    box-shadow: rgba(56, 55, 101, 0.70) 1rem 1rem;
+    box-shadow: rgba(56, 55, 101, 0.70) .5rem .5rem;
     box-sizing: border-box;
-    padding: 3rem;
+    padding: 2rem 1rem;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     display: flex;
+    margin: 2rem auto;
 `
 
 const Title = styled.div`
@@ -39,7 +42,7 @@ const Title = styled.div`
 const ButtonContainer = styled.div`
     display: flex;
     gap: .5rem;
-    flex-direction: column;
+    flex-direction: row;
     margin-top: 1rem
 `
 
@@ -74,19 +77,22 @@ const Decide = styled.div`
 
 const TopRow = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
   width: 100%;
+  gap: 1rem;
 `;
 
 
-const BylineTagContainer = styled.div`
+const TagContainer = styled.div`
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto;
     align-items: center;
+    justify-content: center;
     width: 37.625rem;
     height: 3.5839rem;
     box-sizing: border-box;
+    gap: 1rem;
+    margin-bottom: 1rem;
 `
 
 const TagColumn = styled.div`
@@ -96,20 +102,26 @@ const TagColumn = styled.div`
 `
 
 const Byline = styled.div`
+    width: auto;
+    height: 1.125rem;
     display: flex;
-    align-items: center;
-    gap: .5rem;
     color: #383765;
     font-family: "Passion One";
     font-size: 1.25rem;
     width: auto;
-    margin-left: 2rem;
+    align-items: center;
+    gap: .75rem;
+
+    img {
+        width: 1.3125rem;
+        height: 2.1875rem;
+    }
 `
 
 const Tag = styled.div`
     color: #CE838E;
     font-family: "Passion One";
-    font-size: 1rem;
+    font-size: .875rem;
     display: flex;
     align-items: center;
     gap: .5rem;
@@ -117,23 +129,18 @@ const Tag = styled.div`
 `
 
 const ImageContainer = styled.div`
-    width: 37.625rem;
-    height: 25rem;
-    aspect-ratio: 301/200;
+    width: 19.3125rem;
+    height: 12.8125rem;
+    aspect-ratio: 309/205;
     background-image: url(${(props) => props.image});
-    box-shadow: rgba(56, 55, 101, 0.70) .75rem .75rem;
-    margin-top: 1rem;
+    background-size: cover;
+    box-shadow: rgba(56, 55, 101, 0.70) .25rem .25rem;
+    margin-top: 2rem;
     box-sizing: border-box;
 `
-const LeftColumn = styled.div`
-    display: flex;
-    flex-direction: column; /* Stack BylineTagContainer on top of ImageContainer */
-    align-items: flex-start; /* Align contents to the left */
-    width: 40rem; /* Adjust as needed */
-`;
 
 const ArticleContainer = styled.div`
-    width: 34.6875rem;
+    width: 19.0625rem;
     height: 30.1875rem;
     border: 4px solid rgba(56, 55, 101, 0.70);
     color: #383765;
@@ -142,25 +149,17 @@ const ArticleContainer = styled.div`
     box-sizing: border-box;
     padding: 2rem;
     text-align: left;
+    overflow-y: auto;
 `
-
-const ContentRow = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between; 
-    align-items: flex-start; 
-    gap: 2rem;
-    margin-top: 1rem;
-`;
 
 const Credit = styled.div`
     color: #654E71;
     font-family: Baskerville;
-    font-size: 1rem;
+    font-size: .75rem;
     padding: 1rem;
     display: flex;
     justify-content: flex-end;
-    width: 95%;
+    width: 100%;
 `
 
 
@@ -179,18 +178,14 @@ const Slide10_Mobile = ({ props }) => {
             <Container>
                 <TopRow>
                     <Title>{article_title}</Title>
-                    <ButtonContainer>
-                        <Apply>Apply now</Apply>
-                        <Decide>Decide later</Decide>
-                    </ButtonContainer>
-                </TopRow>
-                <ContentRow>
-                <LeftColumn>
-                <BylineTagContainer>
                     <Byline>
                         <img src={BylineIcon} />
                         {article_byline}
                     </Byline>
+                </TopRow>
+                <ImageContainer image={article_img} />
+                <Credit>{illustration_byline}</Credit>
+                <TagContainer>
                     <TagColumn>
                         <Tag>
                             <img src={SalaryIcon} />
@@ -211,10 +206,7 @@ const Slide10_Mobile = ({ props }) => {
                             Must be willing to take risks
                         </Tag>
                     </TagColumn>
-                </BylineTagContainer>
-                    <ImageContainer image={article_img} />
-                    <Credit>{illustration_byline}</Credit>
-                    </LeftColumn>
+                </TagContainer>
                     <ArticleContainer>
                     Lorem ipsum odor amet, consectetuer adipiscing elit. Per tortor duis sociosqu interdum pellentesque turpis. Ligula fames per id porta sed felis. Fermentum urna accumsan ligula convallis phasellus quis. Proin ipsum efficitur rutrum bibendum aptent non. Faucibus ac netus justo rutrum posuere sagittis libero ut.
 
@@ -226,7 +218,10 @@ const Slide10_Mobile = ({ props }) => {
 
                     Litora ac sociosqu eleifend molestie nostra, nam porttitor viverra. Ac felis hac urna hac tincidunt. Semper mus curae luctus eu accumsan tempus. Rutrum litora metus vivamus feugiat conubia vestibulum sit vehicula himenaeos. Sapien consectetur elementum dolor ut; justo natoque habitant senectus? Gravida fusce accumsan porttitor fusce sociosqu nostra. Suscipit turpis magnis aliquam cras mattis laoreet maecenas erat eu.
                     </ArticleContainer>
-                </ContentRow>
+                <ButtonContainer>
+                    <Apply>Apply now</Apply>
+                    <Decide>Decide later</Decide>
+                </ButtonContainer>
             </Container>
         </Background>
     )
