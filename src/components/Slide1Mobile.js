@@ -19,12 +19,12 @@ const Background = styled.div`
   position: relative;
 `;
 
-/* White box for headline (SVG replacement, now WIDE) */
+/* White box for headline */
 const HeadlineContainer = styled.img`
   position: absolute;
-  width: 75%;  /* Make it wide */
-  height: auto; /* Keep aspect ratio */
-  top: 4%;
+  width: 90%; /* Make it wide */
+  height: 11rem;
+  top: 3%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
@@ -33,34 +33,38 @@ const HeadlineContainer = styled.img`
 /* Checkmark icon */
 const CheckMark = styled.img`
   position: absolute;
-  width: 3rem;
-  left: 6%;
-  top: 2%;
+  width: 2.5rem;
+  left: 9%;
+  top: 1%;
   z-index: 2;
 `;
 
-/* Headline text */
+/* Headline text (Ensures text stays inside the white box) */
 const HeadlineText = styled.div`
   position: absolute;
-  top: 8%;
+  top: 6%;
   left: 50%;
   transform: translateX(-50%);
+  width: 65%; /* Ensures it stays within the white box */
+  height: 5rem; /* Limit height */
   font-family: "Passion One", sans-serif;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #222;
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
-  width: 75%;
+  line-height: 1.2;
+  white-space: normal;
+  word-wrap: break-word;
   z-index: 2;
 `;
 
-/* White credit box (SVG replacement, smaller width) */
+/* White credit box */
 const CreditBox = styled.img`
   position: absolute;
-  width: 75%;
-  height: auto;
-  top: 30%;
+  width: 68%;
+  height: 9rem;
+  top: 22%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
@@ -69,74 +73,72 @@ const CreditBox = styled.img`
 /* Credit text */
 const CreditText = styled.div`
   position: absolute;
-  top: 32%;
-  left: 25%;
+  top: 29%;
+  left: 50%;
   transform: translateX(-50%);
   font-family: "Passion One", sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: #222;
+  text-align: center;
   z-index: 2;
 `;
 
-/* Clipboard absolute positioning (scaled smaller for mobile) */
+/* Clipboard absolute positioning */
 const ClipboardImage = styled.img`
   position: absolute;
-  width: 65%;
-  top: 40%;
+  width: 74%;
+  top: 36%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
 `;
 
-/* Clipboard text (resized to fit inside) */
-const ClipboardText = styled.div`
+/* Scrollable clipboard text */
+const ClipboardTextContainer = styled.div`
   position: absolute;
-  width: 50%;
-  top: 55%;
+  width: 54%;
+  top: 51%;
   left: 50%;
   transform: translateX(-50%);
+  height: 18rem; /* Restrict height */
+  background: rgba(255, 255, 255, 0.8); /* Optional background for readability */
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  overflow-y: auto; /* Enables scrolling */
   font-family: "Baskervville", serif;
-  font-size: 0.80rem;
+  font-size: 0.9rem;
   color: #333;
-  text-align: justify;
-  line-height: 1.4;
+  line-height: 1.5;
   z-index: 2;
 `;
 
-/* Pen absolute positioning (smaller & rotated) */
+/* Pen absolute positioning */
 const Pen = styled.img`
   position: absolute;
-  width: 68%;
-  top: 22%;
-  left: 50%;
+  width: 65%;
+  top: 24%;
+  left: 55%;
   transform: rotate(-5deg);
   z-index: 2;
 `;
 
-const Slide1Mobile = () => {
+const Slide1Mobile = ({ article }) => {
   return (
     <Background>
       {/* Headline Box */}
       <HeadlineContainer src={WhiteBoxSVG} alt="White Box" />
       <CheckMark src={CheckIcon} alt="Check" />
-      <HeadlineText>
-        HEADLINE CAN GO HERE HERE IS HEADLINE SPACE MORE HEADLINE SPACE
-      </HeadlineText>
+      <HeadlineText>{article.article_title}</HeadlineText>
 
       {/* Credit Box */}
       <CreditBox src={WhiteCreditSVG} alt="Credit Box" />
-      <CreditText>Lex Wang</CreditText>
+      <CreditText>{article.article_byline}</CreditText>
 
       {/* Clipboard Image */}
       <ClipboardImage src={ClipboardSVG} alt="Clipboard" />
 
-      {/* Clipboard Text */}
-      <ClipboardText>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-        lacinia, augue a faucibus varius, justo arcu vestibulum nunc, sit
-        amet sollicitudin mi felis et ligula. Fusce eu est vitae mi
-        porttitor congue. Curabitur in semper tortor.
-      </ClipboardText>
+      {/* Scrollable Clipboard Text */}
+      <ClipboardTextContainer>{article.article_text}</ClipboardTextContainer>
 
       {/* Pen */}
       <Pen src={PenIcon} alt="Pen" />

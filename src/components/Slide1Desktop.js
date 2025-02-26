@@ -145,17 +145,7 @@ const Slide1Desktop = ({ article }) => {
       <ClipboardImage src={ClipboardSVG} alt="Clipboard" />
 
       {/* Scrollable Clipboard Text */}
-      <ClipboardTextContainer>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Per tortor
-            duis sociosqu interdum pellentesque turpis. Ligula fames per id
-            porta sed felis. Fermentum urna accumsan ligula convallis phasellus
-            quis. Proin ipsum efficitur rutrum bibendum aptent non. Faucibus ac
-            netus justo rutrum posuere sagittis libero ut.
-
-            Hendrerit etiam nisi suspendisse justo amet. In felis nibh lacus
-            efficitur platea leo nisl ac cubilia. Torquent efficitur natoque
-            natoque quis aenean placerat; posuere justo congue. Maecenas
-            molestie luctus conubia; orci condimentum dapibus est. At arcu sed
-            id lacinia ornare lorem mauris.</ClipboardTextContainer>
+      <ClipboardTextContainer>{article.article_text}</ClipboardTextContainer>
 
       {/* Pen */}
       <Pen src={PenIcon} alt="Pen" />
