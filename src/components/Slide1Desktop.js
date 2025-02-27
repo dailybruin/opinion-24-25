@@ -78,7 +78,7 @@ const CreditBox = styled.img`
   position: absolute;
   width: 20rem;
   left: 10%;
-  top: 83%;
+  top: 80%;
   z-index: 1;
 `;
 
@@ -86,7 +86,7 @@ const CreditBox = styled.img`
 const CreditText = styled.div`
   position: absolute;
   left: 12%;
-  top: 84%;
+  top: 82%;
   font-family: "Passion One", sans-serif;
   font-size: 2rem;
   color: #222;
@@ -98,7 +98,7 @@ const ClipboardImage = styled.img`
   position: absolute;
   width: 33rem;
   left: 36%;
-  top: 8%;
+  top: 12%;
 `;
 
 /* Pen absolute positioning */
@@ -113,10 +113,10 @@ const Pen = styled.img`
 /* Scrollable clipboard text */
 const ClipboardTextContainer = styled.div`
   position: absolute;
-  width: 25rem;
-  top: 30%;
+  width: 24rem;
+  top: 33%;
   left: 40%;
-  height: 20rem; /* Restrict height */
+  height: 26rem; /* Restrict height */
   padding: 1rem;
   border-radius: 0.5rem;
   overflow-y: auto; /* Enables scrolling */
@@ -130,22 +130,15 @@ const ClipboardTextContainer = styled.div`
 const Slide1Desktop = ({ article }) => {
   return (
     <Background>
-      {/* Top navigation bar */}
-      <NavBar>
-        <NavItem>NAME</NavItem>
-        <NavItem>NAME</NavItem>
-        <NavItem>NAME</NavItem>
-        <NavItem>NAME</NavItem>
-        <NavItem>NAME</NavItem>
-        <NavItem>NAME</NavItem>
-        <NavItem>NAME</NavItem>
-      </NavBar>
 
       {/* Clipboard Image */}
       <ClipboardImage src={ClipboardSVG} alt="Clipboard" />
 
       {/* Scrollable Clipboard Text */}
-      <ClipboardTextContainer>{article.article_text}</ClipboardTextContainer>
+      <ClipboardTextContainer>The Social Vulnerability Index (SVI) dataset for Los Angeles county includes information about socioeconomic and demographic factors impacting the vulnerabilities of the LA community. The dataset includes tract identifiers (Tract 2020, Tract Label, Location), geographical attributes (Area in Square Miles), and population estimates from the 2016-2020 American Community Survey (ACS). It also includes estimates for housing units and households, along with measures of uncertainty (MOE). The SVI is calculated based on four themes: Socioeconomic Status, Household Characteristics, Racial and Ethnic Minority Status, and Housing Type/Transportation. Each of these four themes has a summary score and percentile ranking, contributing to an overall vulnerab
+      The Social Vulnerability Index (SVI) dataset for Los Angeles county includes information about socioeconomic and demographic factors impacting the vulnerabilities of the LA community. The dataset includes tract identifiers (Tract 2020, Tract Label, Location), geographical attributes (Area in Square Miles), and population estimates from the 2016-2020 American Community Survey (ACS). It also includes estimates for housing units and households, along with measures of uncertainty (MOE). The SVI is calculated based on four themes: Socioeconomic Status, Household Characteristics, Racial and Ethnic Minority Status, and Housing Type/Transportation. Each of these four themes has a summary score and percentile ranking, contributing to an overall vulnerab
+      The Social Vulnerability Index (SVI) dataset for Los Angeles county includes information about socioeconomic and demographic factors impacting the vulnerabilities of the LA community. The dataset includes tract identifiers (Tract 2020, Tract Label, Location), geographical attributes (Area in Square Miles), and population estimates from the 2016-2020 American Community Survey (ACS). It also includes estimates for housing units and households, along with measures of uncertainty (MOE). The SVI is calculated based on four themes: Socioeconomic Status, Household Characteristics, Racial and Ethnic Minority Status, and Housing Type/Transportation. Each of these four themes has a summary score and percentile ranking, contributing to an overall vulnerab
+      </ClipboardTextContainer>
 
       {/* Pen */}
       <Pen src={PenIcon} alt="Pen" />

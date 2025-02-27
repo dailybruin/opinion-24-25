@@ -97,8 +97,8 @@ const ArticleImageWrapper = styled.div`
 
 /* Image */
 const ArticleImage = styled.img`
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 90%;
   object-fit: cover;
   display: block;
 `;
@@ -125,8 +125,8 @@ const BottomBoxContainer = styled.div`
 
 /* Text Content */
 const BottomBox = styled.div`
-  width: 90%;
-  height: 100%;
+  width: 70%;
+  height: 90%;
   padding: 1.5rem;
   position: relative;
   display: flex;
