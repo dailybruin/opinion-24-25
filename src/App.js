@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { SlideOne, SlideTwo, SlideThree, SlideFour, SlideFive, SlideSix, SlideSeven, SlideEight, SlideNine, SlideTen, SlideEleven } from "./components/Slides";
+
 import Slide1Desktop from "./components/Slide1Desktop.js";
 import Slide1Mobile from "./components/Slide1Mobile.js";
 import Slide2Desktop from "./components/Slide2Desktop.js";
@@ -14,6 +15,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import PageNavButtons from "./components/PageNavButtons";
 
+
 function App() {
   const [data, setData] = useState(null);
   const [currentSlide, setCurrentSlide] = useState(1);
@@ -22,6 +24,7 @@ function App() {
   const names = ["Q&A", "CONFIDENCE", "JOURNAL", "SUPEREGO", "E-IDENTITY", "EXPEDITION", "HOBBY", "DEPRECATION", "PREJUDICE", "CAREER", "BODY"];
 
   const slideColors = [
+
     { bgColor: '#3C3562', textColor: 'white' },
     { bgColor: '#FFE5B0', textColor: '#4E3A24' },
     { bgColor: '#FBE5B6', textColor: '#547966' },
@@ -34,6 +37,7 @@ function App() {
     { bgColor: '#383765', textColor: '#FBE6B7' },
     { bgColor: '#FFFFFF', textColor: '#547966' },
   ];
+
 
   const slides = [
     screenWidth < 780 ? Slide1Mobile : Slide1Desktop,
@@ -48,6 +52,7 @@ function App() {
     screenWidth < 780 ? Slide10 : Slide10, 
     Slide11
   ];
+
 
   useEffect(() => {
     fetch("https://kerckhoff.dailybruin.com/api/packages/flatpages/opinion-25")
@@ -65,6 +70,8 @@ function App() {
     };
   }, []);
 
+
+  // 2 FUNCTIONS FOR SCROLLING EFFECT (USING WIDTH AND INDEX CONTROL)
   const handleScroll = () => {
     if (slideRef.current) {
       const scrollPosition = slideRef.current.scrollLeft;
