@@ -32,6 +32,13 @@ const Section = styled("a")`
   font-weight: bold;
   transition: background-color 0.3s ease, color 0.3s ease; /* Smooth color transition */
 
+  font-family: Passion One;
+  font-weight: 400;
+  font-size: 1.5vw;
+  line-height: 33.03px;
+  letter-spacing: 0%;
+  text-align: center;
+
   &:hover {
     text-decoration: underline overline white;
   }
