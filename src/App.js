@@ -80,7 +80,7 @@ function App() {
           </div>
         ))}
       </div>
-      <PageNavButtons currentSlide={currentSlide} setCurrentSlide={setCurrentSlide} slideRef={slideRef}/>
+      <PageNavButtons currentSlide={currentSlide} setCurrentSlide={setCurrentSlide} slideRef={slideRef} />
     </div>)
   );
 }
