@@ -13,6 +13,7 @@ const Background = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow-x: auto;
 `
 
 const Container = styled.div`
@@ -28,12 +29,14 @@ const Container = styled.div`
     display: flex;
 `
 
-const Title = styled.div`
+const Title = styled.a`
     width: 62.875rem;
     color: #383765;
     font-family: "Passion One";
     font-size: 3.125rem;
     text-align: left;
+    text-decoration: none;
+    cursor: pointer;
 `
 
 const ButtonContainer = styled.div`
@@ -188,21 +191,21 @@ const Slide10 = ({ props }) => {
                     </Byline>
                     <TagColumn>
                         <Tag>
-                            <img src={SalaryIcon} />
+                            <img src={SalaryIcon} alt="SalaryIcon" />
                             High salary
                         </Tag>
                         <Tag>
-                            <img src={FullTimeIcon} />
+                            <img src={FullTimeIcon} alt="FullTimeIcon" />
                             Full-time
                         </Tag>
                     </TagColumn>
                     <TagColumn>
                         <Tag>
-                            <img src={RequirementIcon} />
+                            <img src={RequirementIcon} alt="RequirementIcon" />
                             Must choose one career only
                         </Tag>
                         <Tag>
-                            <img src={RequirementIcon} />
+                            <img src={RequirementIcon} alt="RequirementIcon" />
                             Must be willing to take risks
                         </Tag>
                     </TagColumn>

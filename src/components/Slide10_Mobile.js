@@ -170,7 +170,8 @@ const Slide10_Mobile = ({ props }) => {
         article_url,
         article_byline = "Amy Wong",
         article_img = Slide10Image,
-        illustration_byline = "(Nia Nguyen/Daily Bruin)"
+        illustration_byline = "(Nia Nguyen/Daily Bruin)",
+        article_text
     } = props || {};
 
     return (

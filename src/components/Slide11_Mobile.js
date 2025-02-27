@@ -240,7 +240,8 @@ const Slide11 = ({ props }) => {
         article_url,
         article_byline = "Tavian Williams",
         article_img = [],
-        illustration_byline = []
+        illustration_byline = [],
+        article_text
     } = props || {};
 
     const images = article_img.map((img, index) => ({

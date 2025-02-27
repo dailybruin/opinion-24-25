@@ -7,6 +7,7 @@ import BylineIcon from "../images/BylineIcon11.svg"
 import HeartIcon from "../images/HeartIcon.svg"
 
 const Background = styled.div`
+    padding-top: 1rem;
     height: 100vh;
     width: 100%;
     background: #69937D;
@@ -14,6 +15,7 @@ const Background = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    overflow-x: auto;
 `
 
 const Container = styled.div`
@@ -41,14 +43,17 @@ const TitleContainer = styled.div`
     box-sixing: border-box;
     margin: 1rem;
     padding-left: 1rem;
+    gap: 1rem;
 `
 
-const Title = styled.div`
+const Title = styled.a`
     width: 72.3125rem;
     height: 2.375rem;
     color: #547966;
     font-family: "Passion One";
     font-size: 2.1875rem;
+    text-decoration: none;
+    cursor: pointer;
 `
 
 const ContentContainer = styled.div`
@@ -224,7 +229,8 @@ const Slide11 = ({ props }) => {
         article_url,
         article_byline = "Tavian Williams",
         article_img = [],
-        illustration_byline = []
+        illustration_byline = [],
+        article_text
     } = props || {};
 
     const images = article_img.map((img, index) => ({
@@ -252,7 +258,7 @@ const Slide11 = ({ props }) => {
 
                 </ArticleContainer>
                 <CommentContainer>
-                    <img src={HeartIcon} />
+                    <img src={HeartIcon} alt="HeartIcon" />
                     <Comment>
                         Leave a comment...
                     </Comment>

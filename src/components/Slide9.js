@@ -4,6 +4,7 @@ import Slide9Image1 from "../images/Slide9Image1.png"
 import Slide9Image2 from "../images/Slide9Image2.png"
 
 const Background = styled.div`
+    padding-top: 4rem;
     height: 100vh;
     width: 100%;
     background: #383765;
@@ -11,9 +12,10 @@ const Background = styled.div`
     overflow: hidden;
     justify-content: space-between;
     position: relative;
+    overflow-x: auto;
 `
 
-const Title = styled.div`
+const Title = styled.a`
     width: 50.8775rem;
     height: 7.47263rem;
     border-radius: 0.9375rem;
@@ -24,6 +26,8 @@ const Title = styled.div`
     padding: 1rem;
     box-sizing: border-box;
     text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
 `
 const Byline = styled.div`
     width: 16.48163rem;
@@ -147,7 +151,6 @@ const BackgroundImage3 = styled.div`
     position: absolute;
     right: 70rem;
     top: 45rem;
-    z-index: 2;
     opacity: 1;
 `
 
@@ -169,7 +172,8 @@ const Slide9 = ({ props }) => {
         article_url,
         article_byline = "Nadine Ismail",
         article_img = Slide9Image1,
-        illustration_byline = "(Helen Park/Illustrations Director)"
+        illustration_byline = "(Helen Park/Illustrations Director)",
+        article_text
     } = props || {};
 
     return (

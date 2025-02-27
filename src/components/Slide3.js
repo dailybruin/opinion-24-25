@@ -7,13 +7,15 @@ import Pencil from "../images/Pencil.png"
 import Stroke from "../images/Stroke.svg"
 
 const Background = styled.div`
+    padding-top: 2rem;
     height: 100vh;
     width: 100%;
     background: #CE838E;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: row;
+    overflow-x: auto;
 `
 
 const Container2 = styled.div`
@@ -145,7 +147,7 @@ const PencilImage = styled.img`
     height: 25rem;
 `;
 
-const Title = styled.div`
+const Title = styled.a`
     width: 27.8125rem;
     height: 14.125rem;
     color: #CE838E;
@@ -153,6 +155,8 @@ const Title = styled.div`
     font-family: "Passion One";
     font-size: 3.75rem;
     text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
 `
 
 const Byline = styled.div`
@@ -222,6 +226,7 @@ const Slide3 = ({ props }) => {
         article_title = "HEADLINE CAN GO HERE HERE IS HEADLINE SPACE",
         article_url,
         article_byline = "Anglina Alkhouri",
+        article_text
     } = props || {};
 
     return (
@@ -235,7 +240,7 @@ const Slide3 = ({ props }) => {
                     <Page1 />
                     <Page2 />
                     <Page3>
-                        <Title>
+                        <Title href={article_url} target="_blank">
                             {article_title}
                         </Title>
                         <Byline>

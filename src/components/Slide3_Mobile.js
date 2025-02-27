@@ -202,6 +202,7 @@ const Slide3 = ({ props }) => {
         article_title = "HEADLINE CAN GO HERE HERE IS HEADLINE SPACE MORE HEADLINE HERE",
         article_url,
         article_byline = "Anglina Alkhouri",
+        article_text
     } = props || {};
 
     return (
@@ -218,7 +219,7 @@ const Slide3 = ({ props }) => {
                             {article_byline}
                         </Byline>
                         <LineContainer>
-                            {[...Array(7)].map((_, index) => (
+                            {[...Array(5)].map((_, index) => (
                                 <LineRow key={index}>
                                     <CircleIcon>
                                         <CheckIcon src={Check} checked={[1, 3, 4].includes(index)} />
