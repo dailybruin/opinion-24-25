@@ -11,7 +11,7 @@ import Slide10 from "./components/Slide10.js";
 import Slide11 from "./components/Slide11.js";
 
 function App() {
-  const [ data, setData ] = useState(null);
+  const [data, setData] = useState(null);
   const [currentSlide, setCurrentSlide] = useState(1);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const slideRef = useRef(null);
@@ -31,63 +31,97 @@ function App() {
     { bgColor: '#FFFFFF', textColor: '#547966' },
   ];
 
-  const slides = [ SlideOne, SlideTwo, Slide3, SlideFour, SlideFive, SlideSix, SlideSeven, SlideEight, Slide9, Slide10, Slide11 ];
-
-  // NOTE: hard coded the data since <a> approach did not work with scrolling + nav bar color handling
+  const slides = [SlideOne, SlideTwo, Slide3, SlideFour, SlideFive, SlideSix, SlideSeven, SlideEight, Slide9, Slide10, Slide11];
 
   useEffect(() => {
-     fetch("https://kerckhoff.dailybruin.com/api/packages/flatpages/opinion-25")
-     .then(res => res.json())
-     .then(res => setData(res.data['article.aml']))
-  }, [])
+    fetch("https://kerckhoff.dailybruin.com/api/packages/flatpages/opinion-25")
+      .then(res => res.json())
+      .then(res => setData(res.data['article.aml']));
 
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   // 2 FUNCTIONS FOR SCROLLING EFFECT (USING WIDTH AND INDEX CONTROL)
   const handleScroll = () => {
     if (slideRef.current) {
       const scrollPosition = slideRef.current.scrollLeft;
-      const slideWidth = slideRef.current.offsetWidth; 
+      const slideWidth = slideRef.current.offsetWidth;
       const slideIndex = Math.floor(scrollPosition / slideWidth);
-      setCurrentSlide(slideIndex + 1); 
+      setCurrentSlide(slideIndex + 1);
     }
   };
   const handleTabClick = (index) => {
     const slideWidth = slideRef.current.offsetWidth;
-    // USE THE WIDTH OF THE SCROLL AND INDEX TO GET THE POSITION OF THE SLIDES
-    const slidePosition = index * slideWidth; 
-    slideRef.current.scrollTo({ left: slidePosition, behavior: "smooth"});
-    setCurrentSlide(index + 1); 
+    const slidePosition = index * slideWidth;
+    slideRef.current.scrollTo({ left: slidePosition, behavior: "smooth" });
+    setCurrentSlide(index + 1);
   };
 
   const { textColor, bgColor } = slideColors[currentSlide - 1];
 
   return (
-    (data &&
-    <div>
-      <Header/>
-      
-      <Nav 
-        data={names}
-        currentSlide={currentSlide}
-        setCurrentSlide={setCurrentSlide}
-        handleTabClick={handleTabClick}
-        textColor={textColor}
-        bgColor={bgColor}
-      />
-      <div
-        ref={slideRef}
-        style={{ display: 'flex', overflowX: 'scroll', scrollSnapType: 'x mandatory', width: '100%', height: '100vh', scrollBehavior: 'smooth'}}
-        onScroll={handleScroll}
-      >
-        {slides.map((SlideComponent, index) => (
-          <div key={index} id={data[index]} style={{ width: '100vw', height: '100vh', flexShrink: 0, backgroundColor: bgColor, color: textColor, scrollSnapAlign: 'start' }}>
-            {React.createElement(SlideComponent)}
-          </div>
-        ))}
+    data && (
+      <div>
+        <Header />
+        {screenWidth < 780 ? (
+          <Slide3_Mobile />
+        ) : (
+          <>
+            <Nav
+              data={names}
+              currentSlide={currentSlide}
+              setCurrentSlide={setCurrentSlide}
+              handleTabClick={handleTabClick}
+              textColor={textColor}
+              bgColor={bgColor}
+            />
+            <div
+              ref={slideRef}
+              style={{
+                display: 'flex',
+                overflowX: 'scroll',
+                scrollSnapType: 'x mandatory',
+                width: '100%',
+                height: '100vh',
+                scrollBehavior: 'smooth',
+              }}
+              onScroll={handleScroll}
+            >
+              {slides.map((SlideComponent, index) => (
+                <div
+                  key={index}
+                  id={data[index]}
+                  style={{
+                    width: '100vw',
+                    height: '100vh',
+                    flexShrink: 0,
+                    backgroundColor: bgColor,
+                    color: textColor,
+                    scrollSnapAlign: 'start',
+                  }}
+                >
+                  {React.createElement(SlideComponent)}
+                </div>
+              ))}
+            </div>
+            <PageNavButtons
+              currentSlide={currentSlide}
+              setCurrentSlide={setCurrentSlide}
+              slideRef={slideRef}
+            />
+          </>
+        )}
+        <Footer />
       </div>
-      <PageNavButtons currentSlide={currentSlide} setCurrentSlide={setCurrentSlide} slideRef={slideRef}/>
-    <Footer/>
-    </div>)
+    )
   );
 }
 
