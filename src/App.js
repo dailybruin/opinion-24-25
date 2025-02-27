@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import PageNavButtons from "./components/PageNavButtons";
 import Slide3 from "./components/Slide3.js";
+import Slide3_Mobile from "./components/Slide3_Mobile.js";
 import Slide9 from "./components/Slide9.js";
 import Slide10 from "./components/Slide10.js";
 import Slide11 from "./components/Slide11.js";
@@ -12,6 +13,7 @@ import Slide11 from "./components/Slide11.js";
 function App() {
   const [ data, setData ] = useState(null);
   const [currentSlide, setCurrentSlide] = useState(1);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const slideRef = useRef(null);
   const names = ["Q&A", "CONFIDENCE", "JOURNAL", "SUPEREGO", "E-IDENTITY", "EXPEDITION", "HOBBY", "DEPRECATION", "PREJUDICE", "CAREER", "BODY"];
 
@@ -24,9 +26,9 @@ function App() {
     { bgColor: 'purple', textColor: 'white' },
     { bgColor: 'yellow', textColor: 'black' },
     { bgColor: 'blue', textColor: 'white' },
-    { bgColor: 'red', textColor: 'white' },
-    { bgColor: 'green', textColor: 'white' },
-    { bgColor: 'purple', textColor: 'white' },
+    { bgColor: '#383765', textColor: '#B4CCFB' },
+    { bgColor: '#383765', textColor: '#FBE6B7' },
+    { bgColor: '#FFFFFF', textColor: '#547966' },
   ];
 
   const slides = [ SlideOne, SlideTwo, Slide3, SlideFour, SlideFive, SlideSix, SlideSeven, SlideEight, Slide9, Slide10, Slide11 ];
@@ -63,6 +65,7 @@ function App() {
     (data &&
     <div>
       <Header/>
+      
       <Nav 
         data={names}
         currentSlide={currentSlide}
