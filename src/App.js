@@ -10,6 +10,13 @@ import Slide2 from "./components/Slide2Desktop.js";
 import Slide3 from "./components/Slide3.js";
 import Slide4 from "./components/Slide4.js";
 import Slide7 from "./components/Slide7.js";
+
+import Slide5 from "./components/Slide5.js";
+import Slide5_Mobile from "./components/Slide5_Mobile.js";
+
+import Slide6 from "./components/Slide6.js";
+import Slide6_Mobile from "./components/Slide6_Mobile.js";
+
 import Slide9 from "./components/Slide9.js";
 import Slide10 from "./components/Slide10.js";
 import Slide11 from "./components/Slide11.js";
@@ -24,11 +31,16 @@ import Slide11_Mobile from "./components/Slide11_Mobile.js";
 
 
 function App() {
-  const [data, setData] = useState(null);
-  const [currentSlide, setCurrentSlide] = useState(1);
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  const slideRef = useRef(null);
-  const names = ["Q&A", "CONFIDENCE", "JOURNAL", "SUPEREGO", "E-IDENTITY", "EXPEDITION", "HOBBY", "DEPRECATION", "PREJUDICE", "CAREER", "BODY"];
+    const [data, setData] = useState(null);
+    const [currentSlide, setCurrentSlide] = useState(1);
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+    const slideRef = useRef(null);
+
+    const names = [
+        "Q&A", "CONFIDENCE", "JOURNAL", "SUPEREGO",
+        "E-IDENTITY", "EXPEDITION", "HOBBY",
+        "DEPRECATION", "PREJUDICE", "CAREER", "BODY"
+    ];
 
   const slideColors = [
 
@@ -45,41 +57,50 @@ function App() {
     { bgColor: '#FFFFFF', textColor: '#547966' },
   ];
 
-  const slides = [Slide1, Slide2, Slide3, Slide4, SlideFive, SlideSix, Slide7, SlideEight, Slide9, Slide10, Slide11];
+    const slides = [
+        SlideOne,
+        SlideTwo,
+        screenWidth < 780 ? Slide3_Mobile : Slide3,
+        SlideFour,
+        screenWidth < 780 ? Slide5_Mobile : Slide5,
+        screenWidth < 780 ? Slide6_Mobile : Slide6,
+        SlideSeven,
+        SlideEight,
+        Slide9,
+        Slide10,
+        Slide11,
+    ];
 
-  useEffect(() => {
-    fetch("https://kerckhoff.dailybruin.com/api/packages/flatpages/opinion-25")
-      .then(res => res.json())
-      .then(res => setData(res.data['article.aml']));
+    useEffect(() => {
+        fetch("https://kerckhoff.dailybruin.com/api/packages/flatpages/opinion-25")
+            .then(res => res.json())
+            .then(res => setData(res.data['article.aml']));
 
-    const handleResize = () => {
-      setScreenWidth(window.innerWidth);
+        const handleResize = () => {
+            setScreenWidth(window.innerWidth);
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    const handleScroll = () => {
+        if (slideRef.current) {
+            const scrollPosition = slideRef.current.scrollLeft;
+            const slideWidth = slideRef.current.offsetWidth;
+            const slideIndex = Math.floor(scrollPosition / slideWidth);
+            setCurrentSlide(slideIndex + 1);
+        }
     };
 
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
+    const handleTabClick = (index) => {
+        const slideWidth = slideRef.current.offsetWidth;
+        const slidePosition = index * slideWidth;
+        slideRef.current.scrollTo({ left: slidePosition, behavior: "smooth" });
+        setCurrentSlide(index + 1);
     };
-  }, []);
 
-  // 2 FUNCTIONS FOR SCROLLING EFFECT (USING WIDTH AND INDEX CONTROL)
-  const handleScroll = () => {
-    if (slideRef.current) {
-      const scrollPosition = slideRef.current.scrollLeft;
-      const slideWidth = slideRef.current.offsetWidth;
-      const slideIndex = Math.floor(scrollPosition / slideWidth);
-      setCurrentSlide(slideIndex + 1);
-    }
-  };
-  const handleTabClick = (index) => {
-    const slideWidth = slideRef.current.offsetWidth;
-    const slidePosition = index * slideWidth;
-    slideRef.current.scrollTo({ left: slidePosition, behavior: "smooth" });
-    setCurrentSlide(index + 1);
-  };
-
-  const { textColor, bgColor } = slideColors[currentSlide - 1];
+    const { textColor, bgColor } = slideColors[currentSlide - 1];
 
   return (
     data && (
