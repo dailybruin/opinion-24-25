@@ -1,128 +1,144 @@
 import React, { useState, useEffect, useRef } from "react";
-import { SlideOne, SlideTwo, SlideThree, SlideFour, SlideFive, SlideSix, SlideSeven, SlideEight, SlideNine, SlideTen, SlideEleven } from "./components/Slides";
+import { SlideOne, SlideTwo, SlideFour, SlideSeven, SlideEight } from "./components/Slides";
 import Nav from "./components/Nav";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import PageNavButtons from "./components/PageNavButtons";
+
 import Slide3 from "./components/Slide3.js";
 import Slide3_Mobile from "./components/Slide3_Mobile.js";
+
+import Slide5 from "./components/Slide5.js";
+import Slide5_Mobile from "./components/Slide5_Mobile.js";
+
+import Slide6 from "./components/Slide6.js";
+import Slide6_Mobile from "./components/Slide6_Mobile.js";
+
 import Slide9 from "./components/Slide9.js";
 import Slide10 from "./components/Slide10.js";
 import Slide11 from "./components/Slide11.js";
 
 function App() {
-  const [data, setData] = useState(null);
-  const [currentSlide, setCurrentSlide] = useState(1);
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  const slideRef = useRef(null);
-  const names = ["Q&A", "CONFIDENCE", "JOURNAL", "SUPEREGO", "E-IDENTITY", "EXPEDITION", "HOBBY", "DEPRECATION", "PREJUDICE", "CAREER", "BODY"];
+    const [data, setData] = useState(null);
+    const [currentSlide, setCurrentSlide] = useState(1);
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+    const slideRef = useRef(null);
 
-  const slideColors = [
-    { bgColor: 'red', textColor: 'white' },
-    { bgColor: 'green', textColor: 'white' },
-    { bgColor: '#FBE5B6', textColor: '#547966' },
-    { bgColor: 'yellow', textColor: 'black' },
-    { bgColor: 'green', textColor: 'white' },
-    { bgColor: 'purple', textColor: 'white' },
-    { bgColor: 'yellow', textColor: 'black' },
-    { bgColor: 'blue', textColor: 'white' },
-    { bgColor: '#383765', textColor: '#B4CCFB' },
-    { bgColor: '#383765', textColor: '#FBE6B7' },
-    { bgColor: '#FFFFFF', textColor: '#547966' },
-  ];
+    const names = [
+        "Q&A", "CONFIDENCE", "JOURNAL", "SUPEREGO",
+        "E-IDENTITY", "EXPEDITION", "HOBBY",
+        "DEPRECATION", "PREJUDICE", "CAREER", "BODY"
+    ];
 
-  const slides = [SlideOne, SlideTwo, Slide3, SlideFour, SlideFive, SlideSix, SlideSeven, SlideEight, Slide9, Slide10, Slide11];
+    const slideColors = [
+        { bgColor: 'red', textColor: 'white' },
+        { bgColor: 'green', textColor: 'white' },
+        { bgColor: '#FBE5B6', textColor: '#547966' },
+        { bgColor: 'yellow', textColor: 'black' },
+        { bgColor: '#FBE5B6', textColor: '#547966' }, 
+        { bgColor: 'purple', textColor: 'white' },
+        { bgColor: 'yellow', textColor: 'black' },
+        { bgColor: 'blue', textColor: 'white' },
+        { bgColor: '#383765', textColor: '#B4CCFB' },
+        { bgColor: '#383765', textColor: '#FBE6B7' },
+        { bgColor: '#FFFFFF', textColor: '#547966' },
+    ];
 
-  useEffect(() => {
-    fetch("https://kerckhoff.dailybruin.com/api/packages/flatpages/opinion-25")
-      .then(res => res.json())
-      .then(res => setData(res.data['article.aml']));
+    const slides = [
+        SlideOne,
+        SlideTwo,
+        screenWidth < 780 ? Slide3_Mobile : Slide3,
+        SlideFour,
+        screenWidth < 780 ? Slide5_Mobile : Slide5,
+        screenWidth < 780 ? Slide6_Mobile : Slide6,
+        SlideSeven,
+        SlideEight,
+        Slide9,
+        Slide10,
+        Slide11,
+    ];
 
-    const handleResize = () => {
-      setScreenWidth(window.innerWidth);
+    useEffect(() => {
+        fetch("https://kerckhoff.dailybruin.com/api/packages/flatpages/opinion-25")
+            .then(res => res.json())
+            .then(res => setData(res.data['article.aml']));
+
+        const handleResize = () => {
+            setScreenWidth(window.innerWidth);
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    const handleScroll = () => {
+        if (slideRef.current) {
+            const scrollPosition = slideRef.current.scrollLeft;
+            const slideWidth = slideRef.current.offsetWidth;
+            const slideIndex = Math.floor(scrollPosition / slideWidth);
+            setCurrentSlide(slideIndex + 1);
+        }
     };
 
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
+    const handleTabClick = (index) => {
+        const slideWidth = slideRef.current.offsetWidth;
+        const slidePosition = index * slideWidth;
+        slideRef.current.scrollTo({ left: slidePosition, behavior: "smooth" });
+        setCurrentSlide(index + 1);
     };
-  }, []);
 
-  // 2 FUNCTIONS FOR SCROLLING EFFECT (USING WIDTH AND INDEX CONTROL)
-  const handleScroll = () => {
-    if (slideRef.current) {
-      const scrollPosition = slideRef.current.scrollLeft;
-      const slideWidth = slideRef.current.offsetWidth;
-      const slideIndex = Math.floor(scrollPosition / slideWidth);
-      setCurrentSlide(slideIndex + 1);
-    }
-  };
-  const handleTabClick = (index) => {
-    const slideWidth = slideRef.current.offsetWidth;
-    const slidePosition = index * slideWidth;
-    slideRef.current.scrollTo({ left: slidePosition, behavior: "smooth" });
-    setCurrentSlide(index + 1);
-  };
+    const { textColor, bgColor } = slideColors[currentSlide - 1];
 
-  const { textColor, bgColor } = slideColors[currentSlide - 1];
-
-  return (
-    data && (
-      <div>
-        <Header />
-        {screenWidth < 780 ? (
-          <Slide3_Mobile />
-        ) : (
-          <>
-            <Nav
-              data={names}
-              currentSlide={currentSlide}
-              setCurrentSlide={setCurrentSlide}
-              handleTabClick={handleTabClick}
-              textColor={textColor}
-              bgColor={bgColor}
-            />
-            <div
-              ref={slideRef}
-              style={{
-                display: 'flex',
-                overflowX: 'scroll',
-                scrollSnapType: 'x mandatory',
-                width: '100%',
-                height: '100vh',
-                scrollBehavior: 'smooth',
-              }}
-              onScroll={handleScroll}
-            >
-              {slides.map((SlideComponent, index) => (
+    return (
+        data && (
+            <div>
+                <Header />
+                <Nav
+                    data={names}
+                    currentSlide={currentSlide}
+                    setCurrentSlide={setCurrentSlide}
+                    handleTabClick={handleTabClick}
+                    textColor={textColor}
+                    bgColor={bgColor}
+                />
                 <div
-                  key={index}
-                  id={data[index]}
-                  style={{
-                    width: '100vw',
-                    height: '100vh',
-                    flexShrink: 0,
-                    backgroundColor: bgColor,
-                    color: textColor,
-                    scrollSnapAlign: 'start',
-                  }}
+                    ref={slideRef}
+                    style={{
+                        display: 'flex',
+                        overflowX: 'scroll',
+                        scrollSnapType: 'x mandatory',
+                        width: '100%',
+                        height: '100vh',
+                        scrollBehavior: 'smooth',
+                    }}
+                    onScroll={handleScroll}
                 >
-                  {React.createElement(SlideComponent)}
+                    {slides.map((SlideComponent, index) => (
+                        <div
+                            key={index}
+                            id={data[index]}
+                            style={{
+                                width: '100vw',
+                                height: '100vh',
+                                flexShrink: 0,
+                                backgroundColor: bgColor,
+                                color: textColor,
+                                scrollSnapAlign: 'start',
+                            }}
+                        >
+                            {React.createElement(SlideComponent)}
+                        </div>
+                    ))}
                 </div>
-              ))}
+                <PageNavButtons
+                    currentSlide={currentSlide}
+                    setCurrentSlide={setCurrentSlide}
+                    slideRef={slideRef}
+                />
+                <Footer />
             </div>
-            <PageNavButtons
-              currentSlide={currentSlide}
-              setCurrentSlide={setCurrentSlide}
-              slideRef={slideRef}
-            />
-          </>
-        )}
-        <Footer />
-      </div>
-    )
-  );
+        )
+    );
 }
 
 export default App;
