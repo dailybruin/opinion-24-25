@@ -39,3 +39,6 @@ packages/react-devtools-timeline/dist
 
 # Ignore yarn.lock since we are using npm
 yarn.lock
+
+# Ingore .env file to allow mac/windows computers to run npm start
+.env
