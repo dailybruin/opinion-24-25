@@ -7,12 +7,14 @@ import PageNavButtons from "./components/PageNavButtons";
 import Slide1 from "./components/Slide1Desktop.js";
 import Slide2 from "./components/Slide2Desktop.js";
 import Slide3 from "./components/Slide3.js";
+import Slide4 from "./components/Slide4.js";
 import Slide9 from "./components/Slide9.js";
 import Slide10 from "./components/Slide10.js";
 import Slide11 from "./components/Slide11.js";
 import Slide1_Mobile from "./components/Slide1Mobile.js";
 import Slide2_Mobile from "./components/Slide2Mobile.js";
 import Slide3_Mobile from "./components/Slide3_Mobile.js";
+import Slide4_Mobile from "./components/Slide4_Mobile.js";
 import Slide9_Mobile from "./components/Slide9_Mobile.js";
 import Slide10_Mobile from "./components/Slide10_Mobile.js";
 import Slide11_Mobile from "./components/Slide11_Mobile.js";
@@ -31,7 +33,7 @@ function App() {
     { bgColor: '#3C3562', textColor: 'white' },
     { bgColor: '#FFE5B0', textColor: '#4E3A24' },
     { bgColor: '#FBE5B6', textColor: '#547966' },
-    { bgColor: 'yellow', textColor: 'black' },
+    { bgColor: '#FFFFFF', textColor: '#CE838E' },
     { bgColor: 'green', textColor: 'white' },
     { bgColor: 'purple', textColor: 'white' },
     { bgColor: 'yellow', textColor: 'black' },
@@ -41,7 +43,7 @@ function App() {
     { bgColor: '#FFFFFF', textColor: '#547966' },
   ];
 
-  const slides = [Slide1, Slide2, Slide3, SlideFour, SlideFive, SlideSix, SlideSeven, SlideEight, Slide9, Slide10, Slide11];
+  const slides = [Slide1, Slide2, Slide3, Slide4, SlideFive, SlideSix, SlideSeven, SlideEight, Slide9, Slide10, Slide11];
 
   useEffect(() => {
     fetch("https://kerckhoff.dailybruin.com/api/packages/flatpages/opinion-25")
@@ -86,6 +88,7 @@ function App() {
           <Slide1_Mobile props={data.articles[0]}/>
           <Slide2_Mobile props={data.articles[1]}/>
           <Slide3_Mobile props={data.articles[2]}/>
+          <Slide4_Mobile props={data.articles[3]}/>
           <Slide9_Mobile props={data.articles[8]}/>
           <Slide10_Mobile props={data.articles[9]}/>
           <Slide11_Mobile props={data.articles[10]}/>
