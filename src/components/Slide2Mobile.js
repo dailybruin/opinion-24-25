@@ -169,7 +169,7 @@ const SlimeBottom = styled.img`
   pointer-events: none;
 `;
 
-const Slide2Mobile = ({ article }) => {
+const Slide2Mobile = ({ props }) => {
   return (
     <Background>
       {/* Yellow Text Background */}
@@ -177,7 +177,7 @@ const Slide2Mobile = ({ article }) => {
 
       {/* Title Box */}
       <TitleBox src={WhiteTitleBoxSVG} alt="Title Box" />
-      <TitleText>{article.article_title}</TitleText>
+      <TitleText>{props.article_title}</TitleText>
 
       {/* Main Content */}
       <ContentContainer>
@@ -185,9 +185,9 @@ const Slide2Mobile = ({ article }) => {
         <TopBoxContainer>
           <TopBox>
             <ArticleImageWrapper>
-              <ArticleImage src={article.article_img} alt="Article Image" />
+              <ArticleImage src={props.article_img} alt="Article Image" />
             </ArticleImageWrapper>
-            <ImageCredit>({article.illustration_byline})</ImageCredit>
+            <ImageCredit>({props.illustration_byline})</ImageCredit>
           </TopBox>
           <SlimeTop src={SlimeTopBox} alt="Top Box Slime" />
         </TopBoxContainer>
@@ -195,7 +195,7 @@ const Slide2Mobile = ({ article }) => {
         {/* Bottom Text Box */}
         <BottomBoxContainer>
           <BottomBox>
-            <ArticleText>{article.article_text}</ArticleText>
+            <ArticleText>{props.article_text}</ArticleText>
           </BottomBox>
           <SlimeBottom src={SlimeBottomBox} alt="Bottom Box Slime" />
         </BottomBoxContainer>

@@ -120,23 +120,23 @@ const Pen = styled.img`
   z-index: 2;
 `;
 
-const Slide1Mobile = ({ article }) => {
+const Slide1Mobile = ({ props }) => {
   return (
     <Background>
       {/* Headline Box */}
       <HeadlineContainer src={WhiteBoxSVG} alt="White Box" />
       <CheckMark src={CheckIcon} alt="Check" />
-      <HeadlineText>{article.article_title}</HeadlineText>
+      <HeadlineText>{props.article_title}</HeadlineText>
 
       {/* Credit Box */}
       <CreditBox src={WhiteCreditSVG} alt="Credit Box" />
-      <CreditText>{article.article_byline}</CreditText>
+      <CreditText>{props.article_byline}</CreditText>
 
       {/* Clipboard Image */}
       <ClipboardImage src={ClipboardSVG} alt="Clipboard" />
 
       {/* Scrollable Clipboard Text */}
-      <ClipboardTextContainer>{article.article_text}</ClipboardTextContainer>
+      <ClipboardTextContainer>{props.article_text}</ClipboardTextContainer>
 
       {/* Pen */}
       <Pen src={PenIcon} alt="Pen" />

@@ -112,7 +112,7 @@ const ArticleText = styled.div`
   text-align: justify;
 `;
 
-const Slide2Desktop = ({ article }) => {
+const Slide2Desktop = ({ props }) => {
   return (
     <Background>
       {/* Yellow Text Background */}
@@ -122,14 +122,14 @@ const Slide2Desktop = ({ article }) => {
       <ContentContainer>
         {/* Left Box (Image inside slime container) */}
         <LeftBoxContainer>
-          <ArticleImage src={article.article_img} alt="Article Image" />
-          <ImageCredit>({article.illustration_byline})</ImageCredit>
+          <ArticleImage src={props.article_img} alt="Article Image" />
+          <ImageCredit>({props.illustration_byline})</ImageCredit>
         </LeftBoxContainer>
 
         {/* Right Box (Text inside slime container) */}
         <RightBoxContainer>
-          <Title>{article.article_title}</Title>
-          <ArticleText>{article.article_text}</ArticleText>
+          <Title>{props.article_title}</Title>
+          <ArticleText>{props.article_text}</ArticleText>
         </RightBoxContainer>
       </ContentContainer>
     </Background>

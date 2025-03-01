@@ -127,7 +127,7 @@ const ClipboardTextContainer = styled.div`
   z-index: 2;
 `;
 
-const Slide1Desktop = ({ article }) => {
+const Slide1Desktop = ({ props }) => {
   return (
     <Background>
 
@@ -146,11 +146,11 @@ const Slide1Desktop = ({ article }) => {
       {/* Headline Box */}
       <HeadlineContainer src={WhiteBoxSVG} alt="White Box" />
       <CheckMark src={CheckIcon} alt="Check" />
-      <HeadlineText>{article.article_title}</HeadlineText>
+      <HeadlineText>{props.article_title}</HeadlineText>
 
       {/* Credit Box */}
       <CreditBox src={WhiteCreditSVG} alt="Credit Box" />
-      <CreditText>{article.article_byline}</CreditText>
+      <CreditText>{props.article_byline}</CreditText>
     </Background>
   );
 };
