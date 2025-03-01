@@ -3,6 +3,7 @@ import { SlideOne, SlideTwo, SlideThree, SlideFour, SlideFive, SlideSix, SlideSe
 import Nav from "./components/Nav";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Letter from "./components/Letter.js";
 import PageNavButtons from "./components/PageNavButtons";
 import Slide1 from "./components/Slide1Desktop.js";
 import Slide2 from "./components/Slide2Desktop.js";
@@ -137,9 +138,11 @@ function App() {
               setCurrentSlide={setCurrentSlide}
               slideRef={slideRef}
             />
+            <Letter/>
+            <Footer />
           </>
         )}
-        <Footer />
+        
       </div>
     )
   );
