@@ -4,7 +4,6 @@ import Nav from "./components/Nav";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import FooterMobile from "./components/Footer_Mobile";
-import FooterMobile from "./components/Footer_Mobile";
 import Letter from "./components/Letter.js";
 import PageNavButtons from "./components/PageNavButtons";
 import Slide1 from "./components/Slide1Desktop.js";
@@ -18,13 +17,6 @@ import Slide5 from "./components/Slide5.js";
 import Slide5_Mobile from "./components/Slide5_Mobile.js";
 import Slide6 from "./components/Slide6.js";
 import Slide6_Mobile from "./components/Slide6_Mobile.js";
-
-import Slide5 from "./components/Slide5.js";
-import Slide5_Mobile from "./components/Slide5_Mobile.js";
-
-import Slide6 from "./components/Slide6.js";
-import Slide6_Mobile from "./components/Slide6_Mobile.js";
-
 import Slide9 from "./components/Slide9.js";
 import Slide10 from "./components/Slide10.js";
 import Slide11 from "./components/Slide11.js";
