@@ -107,7 +107,7 @@ function App() {
                 <Header />
                 {screenWidth < 900 ? (
                     <>
-                        <Landing/>
+                        <Landing credits={data.landing_credits}/>
                         <Letter/>
                         <Slide1_Mobile props={data.articles[0]} />
                         <Slide2_Mobile props={data.articles[1]} />
@@ -131,7 +131,7 @@ function App() {
                             textColor={textColor}
                             bgColor={bgColor}
                         />
-                        <Landing/>
+                        <Landing credits={data.landing_credits}/>
                         <div
                             ref={slideRef}
                             style={{
