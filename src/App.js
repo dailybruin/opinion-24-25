@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { SlideOne, SlideTwo, SlideThree, SlideFour, SlideFive, SlideSix, SlideSeven, SlideEight, SlideNine, SlideTen, SlideEleven } from "./components/Slides";
+import { SlideFive, SlideSix, SlideEight} from "./components/Slides";
 import Nav from "./components/Nav";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -9,6 +9,7 @@ import Slide1 from "./components/Slide1Desktop.js";
 import Slide2 from "./components/Slide2Desktop.js";
 import Slide3 from "./components/Slide3.js";
 import Slide4 from "./components/Slide4.js";
+import Slide7 from "./components/Slide7.js";
 import Slide9 from "./components/Slide9.js";
 import Slide10 from "./components/Slide10.js";
 import Slide11 from "./components/Slide11.js";
@@ -37,14 +38,14 @@ function App() {
     { bgColor: '#FFFFFF', textColor: '#CE838E' },
     { bgColor: 'green', textColor: 'white' },
     { bgColor: 'purple', textColor: 'white' },
-    { bgColor: 'yellow', textColor: 'black' },
+    { bgColor: 'white', textColor: 'black' },
     { bgColor: 'blue', textColor: 'white' },
     { bgColor: '#383765', textColor: '#B4CCFB' },
     { bgColor: '#383765', textColor: '#FBE6B7' },
     { bgColor: '#FFFFFF', textColor: '#547966' },
   ];
 
-  const slides = [Slide1, Slide2, Slide3, Slide4, SlideFive, SlideSix, SlideSeven, SlideEight, Slide9, Slide10, Slide11];
+  const slides = [Slide1, Slide2, Slide3, Slide4, SlideFive, SlideSix, Slide7, SlideEight, Slide9, Slide10, Slide11];
 
   useEffect(() => {
     fetch("https://kerckhoff.dailybruin.com/api/packages/flatpages/opinion-25")
