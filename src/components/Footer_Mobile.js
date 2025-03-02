@@ -3,16 +3,14 @@ import insta from '../images/socials/insta.svg'
 import twitter from '../images/socials/twitter.svg'
 import tiktok from '../images/socials/tiktok.svg'
 import email from '../images/socials/email.svg'
-import Background from '../images/Footer.png';
 
 import styled from 'styled-components'
 import { mediaQueries } from '../shared/config';
 
 
 const Container = styled.div`
-	color: #383765;
+  color: #383765;
   background: #F3D38C99;
-  background-image: url(${Background});
   position: relative;
 
 	padding: 60px 0 10px 0;
@@ -43,7 +41,7 @@ const Socials = styled.div`
 	}
 `
 
-const Footer = () => {
+const FooterMobile = () => {
     return (
         <Container>
         <h1>DAILY BRUIN</h1>
@@ -59,4 +57,4 @@ const Footer = () => {
     )
   }
   
-export default Footer;
+export default FooterMobile;

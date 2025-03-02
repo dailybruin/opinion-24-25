@@ -3,7 +3,7 @@ import styled from "styled-components";
 import LetterBackground from "../images/Letter.png";
 
 const Background = styled.div`
-    height: 150vh;
+    height: fit-content;
     width: 100%;
     background: #F3D38C99;
     background-image: url(${LetterBackground}); 
@@ -47,18 +47,18 @@ const EditorTitle = styled.div`
 const Text = styled.div`
     font-family: Baskerville;
     font-weight: 400;
-    font-size: 1.5vw;
-    line-height: 28.6px;
+    font-size: 1.8rem;
+    line-height: 1.25em;
     letter-spacing: 0%;
     color: #FFFFFF;
     text-align: center;
-    padding: 2.5em;
+    padding: 1.5em;
 `
 
 const ByLine = styled.div`
     font-family: Baskerville;
     font-weight: 600;
-    font-size: 2vw;
+    font-size: 1.8em;
     line-height: 34.29px;
     letter-spacing: 0%;
     text-align: right;
