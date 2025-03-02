@@ -4,6 +4,7 @@ import Nav from "./components/Nav";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import FooterMobile from "./components/Footer_Mobile";
+import FooterMobile from "./components/Footer_Mobile";
 import Letter from "./components/Letter.js";
 import PageNavButtons from "./components/PageNavButtons";
 import Slide1 from "./components/Slide1Desktop.js";
