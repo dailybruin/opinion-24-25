@@ -11,7 +11,6 @@ import Slide2 from "./components/Slide2Desktop.js";
 import Slide3 from "./components/Slide3.js";
 import Slide4 from "./components/Slide4.js";
 import Slide7 from "./components/Slide7.js";
-
 import Slide5 from "./components/Slide5.js";
 import Slide5_Mobile from "./components/Slide5_Mobile.js";
 
