@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { SlideOne, SlideTwo, SlideFour, SlideSeven, SlideEight } from "./components/Slides";
+import { SlideOne, SlideTwo, SlideThree, SlideFour, SlideFive, SlideSix, SlideSeven, SlideEight, SlideNine, SlideTen, SlideEleven } from "./components/Slides";
 import Nav from "./components/Nav";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -9,8 +9,15 @@ import PageNavButtons from "./components/PageNavButtons";
 
 import Slide1 from "./components/Slide1Desktop.js";
 import Slide2 from "./components/Slide2Desktop.js";
+
 import Slide3 from "./components/Slide3.js";
 import Slide4 from "./components/Slide4.js";
+import Slide7 from "./components/Slide7.js";
+import Slide7_Mobile from "./components/Slide7_Mobile.js";
+import Slide5 from "./components/Slide5.js";
+import Slide5_Mobile from "./components/Slide5_Mobile.js";
+import Slide6 from "./components/Slide6.js";
+import Slide6_Mobile from "./components/Slide6_Mobile.js";
 import Slide5 from "./components/Slide5.js";
 import Slide6 from "./components/Slide6.js";
 import Slide9 from "./components/Slide9.js";
@@ -39,19 +46,20 @@ function App() {
         "DEPRECATION", "PREJUDICE", "CAREER", "BODY"
     ];
 
-    const slideColors = [
-        { bgColor: '#3C3562', textColor: 'white' },
-        { bgColor: '#FFE5B0', textColor: '#4E3A24' },
-        { bgColor: '#FBE5B6', textColor: '#547966' },
-        { bgColor: '#FFFFFF', textColor: '#CE838E' },
-        { bgColor: '#FBE5B6', textColor: '#547966' },
-        { bgColor: 'purple', textColor: 'white' },
-        { bgColor: 'yellow', textColor: 'black' },
-        { bgColor: 'blue', textColor: 'white' },
-        { bgColor: '#383765', textColor: '#B4CCFB' },
-        { bgColor: '#383765', textColor: '#FBE6B7' },
-        { bgColor: '#FFFFFF', textColor: '#547966' },
-    ];
+  const slideColors = [
+
+    { bgColor: '#3C3562', textColor: 'white' },
+    { bgColor: '#FFE5B0', textColor: '#4E3A24' },
+    { bgColor: '#FBE5B6', textColor: '#547966' },
+    { bgColor: '#FFFFFF', textColor: '#CE838E' },
+    { bgColor: '#FBE6B6', textColor: '#CF848E' },
+    { bgColor: '#383765', textColor: '#FBE6B6' },
+    { bgColor: '#383765', textColor: '#FBE6B6' },
+    { bgColor: 'blue', textColor: 'white' },
+    { bgColor: '#383765', textColor: '#B4CCFB' },
+    { bgColor: '#383765', textColor: '#FBE6B7' },
+    { bgColor: '#FFFFFF', textColor: '#547966' },
+  ];
 
     const slides = [
         Slide1,
@@ -60,7 +68,7 @@ function App() {
         Slide4,
         Slide5,
         Slide6,
-        SlideSeven,
+        Slide7,
         SlideEight,
         Slide9,
         Slide10,
@@ -72,7 +80,9 @@ function App() {
             .then(res => res.json())
             .then(res => setData(res.data['article.aml']));
 
-        const handleResize = () => setScreenWidth(window.innerWidth);
+        const handleResize = () => {
+            setScreenWidth(window.innerWidth);
+        };
 
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
@@ -109,6 +119,7 @@ function App() {
                         <Slide4_Mobile props={data.articles[3]} />
                         <Slide5_Mobile props={data.articles[4]} />
                         <Slide6_Mobile props={data.articles[5]} />
+                        <Slide7_Mobile props={data.articles[6]} />
                         <Slide9_Mobile props={data.articles[8]} />
                         <Slide10_Mobile props={data.articles[9]} />
                         <Slide11_Mobile props={data.articles[10]} />
