@@ -3,6 +3,7 @@ import { SlideFive, SlideSix, SlideEight} from "./components/Slides";
 import Nav from "./components/Nav";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import FooterMobile from "./components/Footer_Mobile";
 import Letter from "./components/Letter.js";
 import PageNavButtons from "./components/PageNavButtons";
 import Slide1 from "./components/Slide1Desktop.js";
@@ -58,12 +59,12 @@ function App() {
   ];
 
     const slides = [
-        SlideOne,
-        SlideTwo,
-        screenWidth < 780 ? Slide3_Mobile : Slide3,
-        SlideFour,
-        screenWidth < 780 ? Slide5_Mobile : Slide5,
-        screenWidth < 780 ? Slide6_Mobile : Slide6,
+        Slide1,
+        Slide2,
+        Slide3,
+        Slide4,
+        Slide5,
+        Slide6,
         SlideSeven,
         SlideEight,
         Slide9,
@@ -102,72 +103,77 @@ function App() {
 
     const { textColor, bgColor } = slideColors[currentSlide - 1];
 
-  return (
-    data && (
-      <div>
-        <Header />
-        {screenWidth < 780 ? (
-          <>
-          <Slide1_Mobile props={data.articles[0]}/>
-          <Slide2_Mobile props={data.articles[1]}/>
-          <Slide3_Mobile props={data.articles[2]}/>
-          <Slide4_Mobile props={data.articles[3]}/>
-          <Slide9_Mobile props={data.articles[8]}/>
-          <Slide10_Mobile props={data.articles[9]}/>
-          <Slide11_Mobile props={data.articles[10]}/>
-          </>
-        ) : (
-          <>
-            <Nav
-              data={names}
-              currentSlide={currentSlide}
-              setCurrentSlide={setCurrentSlide}
-              handleTabClick={handleTabClick}
-              textColor={textColor}
-              bgColor={bgColor}
-            />
-            <div
-              ref={slideRef}
-              style={{
-                display: 'flex',
-                overflowX: 'scroll',
-                scrollSnapType: 'x mandatory',
-                width: '100%',
-                height: '100vh',
-                scrollBehavior: 'smooth',
-              }}
-              onScroll={handleScroll}
-            >
-              {slides.map((SlideComponent, index) => (
-                <div
-                  key={index}
-                  id={data[index]}
-                  style={{
-                    width: '100vw',
-                    height: '100vh',
-                    flexShrink: 0,
-                    backgroundColor: bgColor,
-                    color: textColor,
-                    scrollSnapAlign: 'start',
-                  }}
-                >
-                  {React.createElement(SlideComponent, {props: data.articles ? data.articles[index] : null})}
-                </div>
-              ))}
+    return (
+        data && (
+            <div>
+                <Header />
+                {screenWidth < 780 ? (
+                    <>
+                        <Letter/>
+                        <Slide1_Mobile props={data.articles[0]} />
+                        <Slide2_Mobile props={data.articles[1]} />
+                        <Slide3_Mobile props={data.articles[2]} />
+                        <Slide4_Mobile props={data.articles[3]} />
+                        <Slide5_Mobile props={data.articles[4]} />
+                        <Slide6_Mobile props={data.articles[5]} />
+                        <Slide9_Mobile props={data.articles[8]} />
+                        <Slide10_Mobile props={data.articles[9]} />
+                        <Slide11_Mobile props={data.articles[10]} />
+                        <FooterMobile/>
+                    </>
+                ) : (
+                    <>
+                        <Nav
+                            data={names}
+                            currentSlide={currentSlide}
+                            setCurrentSlide={setCurrentSlide}
+                            handleTabClick={handleTabClick}
+                            textColor={textColor}
+                            bgColor={bgColor}
+                        />
+                        <div
+                            ref={slideRef}
+                            style={{
+                                display: 'flex',
+                                overflowX: 'scroll',
+                                scrollSnapType: 'x mandatory',
+                                width: '100%',
+                                height: '100vh',
+                                scrollBehavior: 'smooth',
+                            }}
+                            onScroll={handleScroll}
+                        >
+                            {slides.map((SlideComponent, index) => (
+                                <div
+                                    key={index}
+                                    id={data[index]}
+                                    style={{
+                                        width: '100vw',
+                                        height: '100vh',
+                                        flexShrink: 0,
+                                        backgroundColor: bgColor,
+                                        color: textColor,
+                                        scrollSnapAlign: 'start',
+                                    }}
+                                >
+                                    {React.createElement(SlideComponent, {
+                                        props: data.articles ? data.articles[index] : null,
+                                    })}
+                                </div>
+                            ))}
+                        </div>
+                        <PageNavButtons
+                            currentSlide={currentSlide}
+                            setCurrentSlide={setCurrentSlide}
+                            slideRef={slideRef}
+                        />
+                        <Letter />
+                        <Footer />
+                    </>
+                )}
             </div>
-            <PageNavButtons
-              currentSlide={currentSlide}
-              setCurrentSlide={setCurrentSlide}
-              slideRef={slideRef}
-            />
-            <Letter/>
-            <Footer />
-          </>
-        )}
-        
-      </div>
-    )
-  );
+        )
+    );
 }
 
 export default App;
