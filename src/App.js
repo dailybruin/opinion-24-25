@@ -9,27 +9,21 @@ import PageNavButtons from "./components/PageNavButtons";
 
 import Slide1 from "./components/Slide1Desktop.js";
 import Slide2 from "./components/Slide2Desktop.js";
-
 import Slide3 from "./components/Slide3.js";
 import Slide4 from "./components/Slide4.js";
+import Slide5 from "./components/Slide5.js";
+import Slide6 from "./components/Slide6.js";
 import Slide7 from "./components/Slide7.js";
-import Slide7_Mobile from "./components/Slide7_Mobile.js";
-import Slide5 from "./components/Slide5.js";
-import Slide5_Mobile from "./components/Slide5_Mobile.js";
-import Slide6 from "./components/Slide6.js";
-import Slide6_Mobile from "./components/Slide6_Mobile.js";
-import Slide5 from "./components/Slide5.js";
-import Slide6 from "./components/Slide6.js";
 import Slide9 from "./components/Slide9.js";
 import Slide10 from "./components/Slide10.js";
 import Slide11 from "./components/Slide11.js";
-
 import Slide1_Mobile from "./components/Slide1Mobile.js";
 import Slide2_Mobile from "./components/Slide2Mobile.js";
 import Slide3_Mobile from "./components/Slide3_Mobile.js";
 import Slide4_Mobile from "./components/Slide4_Mobile.js";
 import Slide5_Mobile from "./components/Slide5_Mobile.js";
 import Slide6_Mobile from "./components/Slide6_Mobile.js";
+import Slide7_Mobile from "./components/Slide7_Mobile.js";
 import Slide9_Mobile from "./components/Slide9_Mobile.js";
 import Slide10_Mobile from "./components/Slide10_Mobile.js";
 import Slide11_Mobile from "./components/Slide11_Mobile.js";
