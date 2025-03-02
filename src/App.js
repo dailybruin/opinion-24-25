@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 import FooterMobile from "./components/Footer_Mobile";
 import Letter from "./components/Letter.js";
 import PageNavButtons from "./components/PageNavButtons";
-
+import Landing from "./components/Landing";
 import Slide1 from "./components/Slide1Desktop.js";
 import Slide2 from "./components/Slide2Desktop.js";
 import Slide3 from "./components/Slide3.js";
@@ -14,6 +14,7 @@ import Slide4 from "./components/Slide4.js";
 import Slide5 from "./components/Slide5.js";
 import Slide6 from "./components/Slide6.js";
 import Slide7 from "./components/Slide7.js";
+import Slide8 from "./components/Slide8.js";
 import Slide9 from "./components/Slide9.js";
 import Slide10 from "./components/Slide10.js";
 import Slide11 from "./components/Slide11.js";
@@ -49,7 +50,7 @@ function App() {
     { bgColor: '#FBE6B6', textColor: '#CF848E' },
     { bgColor: '#383765', textColor: '#FBE6B6' },
     { bgColor: '#383765', textColor: '#FBE6B6' },
-    { bgColor: 'blue', textColor: 'white' },
+    { bgColor: '#CE838E', textColor: '#383765' },
     { bgColor: '#383765', textColor: '#B4CCFB' },
     { bgColor: '#383765', textColor: '#FBE6B7' },
     { bgColor: '#FFFFFF', textColor: '#547966' },
@@ -63,7 +64,7 @@ function App() {
         Slide5,
         Slide6,
         Slide7,
-        SlideEight,
+        Slide8,
         Slide9,
         Slide10,
         Slide11,
@@ -104,8 +105,9 @@ function App() {
         data && (
             <div>
                 <Header />
-                {screenWidth < 780 ? (
+                {screenWidth < 900 ? (
                     <>
+                        <Landing/>
                         <Letter/>
                         <Slide1_Mobile props={data.articles[0]} />
                         <Slide2_Mobile props={data.articles[1]} />
@@ -129,6 +131,7 @@ function App() {
                             textColor={textColor}
                             bgColor={bgColor}
                         />
+                        <Landing/>
                         <div
                             ref={slideRef}
                             style={{
@@ -165,10 +168,12 @@ function App() {
                             setCurrentSlide={setCurrentSlide}
                             slideRef={slideRef}
                         />
+
                         <Letter />
                         <Footer />
                     </>
                 )}
+            
             </div>
         )
     );
