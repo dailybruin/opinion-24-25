@@ -1,23 +1,27 @@
 import React from "react";
 import styled from "styled-components";
-import BinderClips from "../images/Binder.png";
+import Background from "../images/Slide7_MobileBackground.png";
 import { Carousel } from "../components/Carousel";
+
 
 const Container = styled.div`
     margin-top: 2em;
-    height: 100vh;
+    height: 150vh;
     width: 100%;
-    background: url(${BinderClips});
+    background: url(${Background});
     background-color: #547865;
     position: relative;
     display: flex;
     flex-direction: column;
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    background-position: center; 
 `
 const Title = styled.div`
-    width: 30%;
+    width: 50%;
     font-family: Passion One;
     font-weight: 400;
-    font-size: 3vw;
+    font-size: 5vw;
     line-height: 1em;
     letter-spacing: 0%;
     text-align: right;
@@ -25,7 +29,7 @@ const Title = styled.div`
     padding: .5em;
     text-align: left;
     margin-top: 2em;
-    margin-left: 1em;
+    margin-left: 2em;
 `
 const Byline = styled.div`
     width: 30%;
@@ -42,8 +46,8 @@ const Byline = styled.div`
 `
 
 const TextContainer = styled.div`
-    width: 40%; 
-    height: 50%;
+    width: 100%; 
+    height: 30%;
     font-family: "Baskervville", serif;
     font-size: 1rem;
     color: #FBE6B6;
@@ -58,16 +62,16 @@ const TextContainer = styled.div`
 
 const CarouselContainer = styled.div`
     position: absolute;
-    top: 550px; 
-    left: 920px;
+    left: 190px;
+    bottom: 40px;
     transform: translateX(-50%) rotate(-9deg); 
     width: 23em;
-    max-width: 90%;
+    max-width: 65%;
     margin-bottom: 0;
 `;
 
 
-const Slide7 = ({props}) => {
+const Slide7_Mobile = ({props}) => {
     const image_slides = [
         {
           src: "https://picsum.photos/seed/img1/600/400",
@@ -100,4 +104,4 @@ const Slide7 = ({props}) => {
     )
 }
 
-export default Slide7;
+export default Slide7_Mobile;
