@@ -22,6 +22,7 @@ const Background = styled.div`
     box-sizing: border-box;
 `;
 
+// Adding the border BACK to match design
 const LeftTextContainer = styled.div`
     width: 26%;
     height: 85%;
@@ -33,6 +34,11 @@ const LeftTextContainer = styled.div`
     padding: 1rem;
     box-sizing: border-box;
     background-color: transparent;
+    border: 1px solid #FBE6B6;  // This is the border we had lost
+
+    position: relative;
+    left: 20px;   // Slight nudge to the right
+    top: 60px;   // Slight nudge down
 
     p {
         margin-bottom: 1rem;
@@ -43,7 +49,7 @@ const RightContentContainer = styled.div`
     position: absolute;
     top: 50%;
     left: calc(60vw - (750px / 2));  // Centered around 60%, and slightly larger
-    width: 750px;  // Slightly larger
+    width: 750px;
     height: auto;
     transform: translateY(-50%);
     display: flex;
@@ -58,12 +64,12 @@ const Map = styled.img`
 
 const Title = styled.div`
     position: absolute;
-    top: 39%;  // Moved down a tiny bit
+    top: 39%;
     width: 100%;
     text-align: center;
     color: #FBE6B6;
     font-family: "Passion One", sans-serif;
-    font-size: 3.2rem;  // Slightly bigger
+    font-size: 3.2rem;
     font-weight: bold;
     text-transform: uppercase;
 `;
