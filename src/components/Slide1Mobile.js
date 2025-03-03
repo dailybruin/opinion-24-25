@@ -95,10 +95,10 @@ const ClipboardImage = styled.img`
 const ClipboardTextContainer = styled.div`
   position: absolute;
   width: 54%;
-  top: 54%;
+  top: 50%;
   left: 50%;
   transform: translateX(-50%);
-  height: 23rem; /* Restrict height */
+  height: 25%; /* Restrict height */
   background: rgba(255, 255, 255, 0.8); /* Optional background for readability */
   padding: 0.8rem;
   border-radius: 0.5rem;

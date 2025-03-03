@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 import BackgroundTextSVG from "../images/slide2bg.svg"; // Yellow text SVG
-import SlimeLeftBox from "../images/slide2box1slime.svg"; // Left box slime (acts as a container)
-import SlimeRightBox from "../images/slide2box2.svg"; // Right box slime (acts as a container)
+import SlimeLeftBox from "../images/slide2box1slime.svg"; // Left box slime container
+import SlimeRightBox from "../images/slide2box2.svg"; // Right box slime container
 
 const Background = styled.div`
   height: 100vh;
@@ -29,11 +29,9 @@ const BackgroundText = styled.img`
 `;
 
 const ContentContainer = styled.div`
-  top: 8%;
   width: 85%;
   height: 80%;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   position: relative;
@@ -41,27 +39,83 @@ const ContentContainer = styled.div`
   z-index: 2;
 `;
 
-/* Left Box (Article Image) */
-const LeftBoxContainer = styled.div`
+const BoxContainer = styled.div`
   position: relative;
-  width: 45%;
+  flex: 1; /* Makes both boxes grow equally */
   height: 85%;
-  background-image: url(${SlimeLeftBox}); 
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem; /* Adjust padding to keep content inside */
+  padding: 1rem;
 `;
 
-/* Image inside the slime outline */
-const ArticleImage = styled.img`
-  width: 80%; /* Ensure image fits inside */
+/* Left Box */
+const LeftBoxContainer = styled(BoxContainer)`
+  background-image: url(${SlimeLeftBox});
+  height: 90%
+`;
+
+/* Right Box */
+const RightBoxContainer = styled(BoxContainer)`
+  background-image: url(${SlimeRightBox});
+  flex-direction: column; 
+  padding: 2rem;
+`;
+
+/* Image inside Left Box */
+const ImageContainer = styled.div`
+  width: 80%;  
   height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+`;
+
+const ArticleImage = styled.img`
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 `;
+
+/* Text inside Right Box */
+const TextContainer = styled.div`
+  width: 80%;
+  height: 78%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  margin-top: -2rem; /* Move the whole text container up */
+`;
+
+const Title = styled.div`
+  font-family: "Passion One", sans-serif;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #4E3A24;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  width: 100%;
+`;
+
+const ArticleText = styled.div`
+  font-family: "Baskervville", serif;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+  height: 62%;
+  width: 100%;
+  overflow-y: auto;
+  padding: 0 1rem;
+  text-align: justify;
+`;
+
+
 
 /* Image Credit */
 const ImageCredit = styled.div`
@@ -72,45 +126,6 @@ const ImageCredit = styled.div`
   color: #4E3A24;
 `;
 
-/* Right Box (Article Text) */
-const RightBoxContainer = styled.div`
-  position: relative;
-  width: 47%;
-  height: 85%;
-  background-image: url(${SlimeRightBox}); /* Slime acts as container */
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 2rem;
-`;
-
-/* Title */
-const Title = styled.div`
-  font-family: "Passion One", sans-serif;
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #4E3A24;
-  margin-top:2rem;
-  margin-bottom: 0.5rem;
-  text-align: center;
-`;
-
-/* Scrollable Article Text */
-const ArticleText = styled.div`
-  font-family: "Baskervville", serif;
-  font-size: 1rem;
-  color: #333;
-  line-height: 1.5;
-  height: 60%;
-  width: 80%;
-  overflow-y: auto;
-  padding-right: 1rem;
-  margin: auto;
-  text-align: justify;
-`;
 
 const Slide2Desktop = ({ props }) => {
   return (
@@ -122,14 +137,18 @@ const Slide2Desktop = ({ props }) => {
       <ContentContainer>
         {/* Left Box (Image inside slime container) */}
         <LeftBoxContainer>
-          <ArticleImage src={props.article_img} alt="Article Image" />
+          <ImageContainer>
+            <ArticleImage src={props.article_img} alt="Article Image" />
+          </ImageContainer>
           <ImageCredit>({props.illustration_byline})</ImageCredit>
         </LeftBoxContainer>
 
         {/* Right Box (Text inside slime container) */}
         <RightBoxContainer>
-          <Title>{props.article_title}</Title>
-          <ArticleText>{props.article_text}</ArticleText>
+          <TextContainer>
+            <Title>{props.article_title}</Title>
+            <ArticleText>{props.article_text}</ArticleText>
+          </TextContainer>
         </RightBoxContainer>
       </ContentContainer>
     </Background>
@@ -137,3 +156,4 @@ const Slide2Desktop = ({ props }) => {
 };
 
 export default Slide2Desktop;
+
