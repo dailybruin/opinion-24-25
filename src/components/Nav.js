@@ -23,7 +23,8 @@ const Container = styled("div")`
 
 const Section = styled("a")`
   width: 100%;
-  padding: 1em 0;
+  // padding: 1em 0;
+  padding: 0.5em 0;
   color: ${({ isCurrentSlide, textColor, bgColor }) => isCurrentSlide ? textColor : bgColor};
   background-color: ${({ isCurrentSlide, textColor, bgColor }) => isCurrentSlide ? bgColor : textColor}; 
   text-decoration: none;
