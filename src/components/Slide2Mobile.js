@@ -97,8 +97,8 @@ const ArticleImageWrapper = styled.div`
 
 /* Image */
 const ArticleImage = styled.img`
-  width: 90%;
-  height: 90%;
+  width: 80%;
+  height: 80%;
   object-fit: cover;
   display: block;
 `;
@@ -142,7 +142,7 @@ const ArticleText = styled.div`
   font-size: 1rem;
   color: #333;
   line-height: 1.5;
-  height: 85%;
+  height: 82%;
   overflow-y: auto;
   padding-right: 0.5rem;
   z-index: 4;
