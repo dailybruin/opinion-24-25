@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
-import { SlideOne, SlideTwo, SlideThree, SlideFour, SlideFive, SlideSix, SlideSeven, SlideEight, SlideNine, SlideTen, SlideEleven } from "./components/Slides";
+import { Home, SlideOne, SlideTwo, SlideThree, SlideFour, SlideFive, SlideSix, SlideSeven, SlideEight, SlideNine, SlideTen, SlideEleven } from "./components/Slides";
 import Nav from "./components/Nav";
 import PageNavButtons from "./components/PageNavButtons";
 
 function App() {
   const [currentSlide, setCurrentSlide] = useState(1);
   const slideRef = useRef(null);
-  const data = ["slide1", "slide2", "slide3", "slide4", "slide5", "slide6", "slide7", "slide8", "slide9", "slide10", "slide11"];
+  const data = ["home", "slide1", "slide2", "slide3", "slide4", "slide5", "slide6", "slide7", "slide8", "slide9", "slide10", "slide11"];
 
   const slideColors = [
+    { bgColor: 'black', textColor: 'white' },
     { bgColor: 'red', textColor: 'white' },
     { bgColor: 'green', textColor: 'white' },
     { bgColor: 'blue', textColor: 'white' },
@@ -22,7 +23,7 @@ function App() {
     { bgColor: 'purple', textColor: 'white' },
   ];
 
-  const slides = [ SlideOne, SlideTwo, SlideThree, SlideFour, SlideFive, SlideSix, SlideSeven, SlideEight, SlideNine, SlideTen, SlideEleven ];
+  const slides = [ Home, SlideOne, SlideTwo, SlideThree, SlideFour, SlideFive, SlideSix, SlideSeven, SlideEight, SlideNine, SlideTen, SlideEleven ];
 
   // NOTE: hard coded the data since <a> approach did not work with scrolling + nav bar color handling
 

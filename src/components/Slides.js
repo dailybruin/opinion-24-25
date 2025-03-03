@@ -11,6 +11,16 @@ const Container = styled.div`
   font-size: 2rem;
 `;
 
+const Home = () => {
+  return (
+    <>
+      <Container style={{ backgroundColor: 'black', color: 'white'}}>
+        Home
+      </Container>
+    </>
+  );
+};
+
 const SlideOne = () => {
   return (
     <>
@@ -183,4 +193,4 @@ const SlideEleven = () => {
 
 
 // export { SlideOne, SlideTwo, SlideThree, SlideFour, SlideFive, SlideSix, SlideSeven, SlideEight, SlideNine, SlideTen, SlideEleven, SlideOneColors, SlideTwoColors, SlideThreeColors, SlideFourColors, SlideFiveColors, SlideSixColors, SlideSevenColors, SlideEightColors, SlideNineColors, SlideTenColors, SlideElevenColors };
-export { SlideOne, SlideTwo, SlideThree, SlideFour, SlideFive, SlideSix, SlideSeven, SlideEight, SlideNine, SlideTen, SlideEleven};
+export { Home, SlideOne, SlideTwo, SlideThree, SlideFour, SlideFive, SlideSix, SlideSeven, SlideEight, SlideNine, SlideTen, SlideEleven};
