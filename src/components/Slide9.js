@@ -22,27 +22,30 @@ const Title = styled.a`
     background: #B4CCFB;
     color: #383765;
     font-family: "Passion One";
-    font-size: 2.375rem;
+    font-size: 2rem;
     padding: 1rem;
     box-sizing: border-box;
     text-transform: uppercase;
     text-decoration: none;
     cursor: pointer;
+    align-items: center;
+    display: flex;
 `
 const Byline = styled.div`
-    width: 16.48163rem;
+    width: 20.48163rem;
     height: 3.46494rem;
     border-radius: 0.9375rem;
     background: #B4CCFB;
     color: #383765;
     font-family: "Passion One";
-    font-size: 2.5rem;
+    font-size: 2rem;
     padding: 1rem;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
     text-transform: uppercase;
+    text-align: center;
 `
 
 const TitleBylineContainer = styled.div`
@@ -71,24 +74,24 @@ const Circle = styled.div`
 `;
 
 const Circle1 = styled(Circle)`
-    width: 46.302rem;
-    height: 46.302rem;
+    width: 41.302rem;
+    height: 41.302rem;
     border: 43px solid #B4CCFB;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.24);
 `
 
 const Circle2 = styled(Circle)`
-    width: 50.875rem;
-    height: 50.875rem;
+    width: 45.875rem;
+    height: 45.875rem;
     border: 17px solid rgba(180, 204, 251, 0.85);
     backdrop-filter: blur(2px);
     padding: 1.5rem;
 `
 
 const Circle3 = styled(Circle)`
-    width: 55.45306rem;
-    height: 55.45306rem;
+    width: 50.45306rem;
+    height: 50.45306rem;
     border: 17px solid rgba(180, 204, 251, 0.85);
     backdrop-filter: blur(2px);
     padding: 1.5rem;
@@ -116,6 +119,8 @@ const ImageContainer = styled.div`
     background: url(${(props) => props.image});
     background-repeat: no-repeat;
     position: relative;
+    left: -2rem;
+    top: .75rem;
 `
 
 const BackgroundImage1 = styled.div`

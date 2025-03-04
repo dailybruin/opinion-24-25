@@ -43,7 +43,12 @@ const TitleContainer = styled.div`
     box-sixing: border-box;
     margin: 1rem;
     padding-left: 1rem;
-    gap: 1rem;
+    gap: 2rem;
+
+    img {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
 `
 
 const Title = styled.a`

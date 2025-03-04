@@ -153,7 +153,7 @@ const Title = styled.a`
     color: #CE838E;
     text-align: center;
     font-family: "Passion One";
-    font-size: 3.75rem;
+    font-size: 2.75rem;
     text-transform: uppercase;
     text-decoration: none;
     cursor: pointer;
