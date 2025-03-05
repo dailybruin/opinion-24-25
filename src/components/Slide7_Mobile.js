@@ -72,20 +72,20 @@ const CarouselContainer = styled.div`
 
 
 const Slide7_Mobile = ({props}) => {
-    const image_slides = [
-        {
-          src: "https://picsum.photos/seed/img1/600/400",
-          alt: "Image 1 for carousel"
-        },
-        {
-          src: "https://picsum.photos/seed/img2/600/400",
-          alt: "Image 2 for carousel"
-        },
-        {
-          src: "https://picsum.photos/seed/img3/600/400",
-          alt: "Image 3 for carousel"
-        }
-      ];
+  const image_slides = [
+    {
+      src: props.article_image_1,
+      alt: "Image 1 for carousel"
+    },
+    {
+      src: props.article_image_2,
+      alt: "Image 2 for carousel"
+    },
+    {
+      src: props.article_image_3,
+      alt: "Image 3 for carousel"
+    }
+  ];
       
     return (
         <>

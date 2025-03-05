@@ -9,6 +9,7 @@ const Container = styled.div`
     width: 100%;
     background: url(${BinderClips});
     background-color: #547865;
+    background-repeat: no-repeat;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -54,6 +55,7 @@ const TextContainer = styled.div`
     background-color: #393766;
     border: 1em solid white; 
     margin-left: .5em;
+    margin-top: -5.7em
 `;
 
 const CarouselContainer = styled.div`
@@ -62,23 +64,30 @@ const CarouselContainer = styled.div`
     left: 920px;
     transform: translateX(-50%) rotate(-9deg); 
     width: 23em;
+    height: 17.5em;
     max-width: 90%;
     margin-bottom: 0;
+`;
+
+const Text = styled.div`
+    width: 100%;
+    height: 100%;
+    padding: 1em;
 `;
 
 
 const Slide7 = ({props}) => {
     const image_slides = [
         {
-          src: "https://picsum.photos/seed/img1/600/400",
+          src: props.article_image_1,
           alt: "Image 1 for carousel"
         },
         {
-          src: "https://picsum.photos/seed/img2/600/400",
+          src: props.article_image_2,
           alt: "Image 2 for carousel"
         },
         {
-          src: "https://picsum.photos/seed/img3/600/400",
+          src: props.article_image_3,
           alt: "Image 3 for carousel"
         }
       ];
@@ -89,9 +98,11 @@ const Slide7 = ({props}) => {
             <Title>{props.article_title}</Title>
             <Byline>{props.article_byline}</Byline>
             <TextContainer>
-            {props.article_text.split('/n').map((line, index) => (
+                <Text>
+                {props.article_text.split('/n').map((line, index) => (
               <p key={index}>{line}</p>
           ))}
+                </Text>
             </TextContainer>
             <CarouselContainer>
                 <Carousel data={image_slides} />

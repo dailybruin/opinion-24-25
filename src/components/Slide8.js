@@ -53,7 +53,11 @@ const TextContainer = styled.div`
   width: 55%;
 `;
 
+
+
 const Text = styled.div`
+  width: 34.6875rem;
+  height: 30.1875rem;
   color: #333;
   font-size: 0.85rem;
   line-height: 1.2;
@@ -61,6 +65,7 @@ const Text = styled.div`
   padding: 0.35rem 0;
   text-align: left;
   width: 100%;
+  overflow-y: auto;
 `;
 
 const SmallBrickWall = styled.svg`
@@ -83,15 +88,15 @@ const Credit = styled.div`
 `;
 
 const Title = styled.div`
-  font-size: 4rem;
+  font-size: 3rem;
   color: #393769;
   text-align: right;
   margin-top: 1rem;
   font-weight: 400;
-  font-family: 'Passion One', cursive;
+  font-family: "Passion One";
 `;
 
-const Slide8 = () => {
+const Slide8 = ({props}) => {
   return (
     <Slide8Container>
       <ContentContainer>
@@ -122,23 +127,10 @@ const Slide8 = () => {
         <TextContainer>
           <TextSection>
             <Text>
-              Lsorem ipsum dolor amet, consectetur adipiscing elit. Per neque this orci nunc interdum pellentesque turpis. Ligula fames per id porta sed erit. Arcu mattium turpis accumsan finibus consect amet. Duis quam officiat nunc finibus aperture nunc. Exercitat ac neque justo cursus posuere sapien Etiam ut.
-            </Text>
-            <Text>
-              Hendrerit enim sint suspendisse ante amet. Ut eget odio fames eu efficitur placerat sed ac vitality. Tempor efficitur posuere posuere justo cursus. Maecenas molestie lacus condimen, orci condimentum digniss est. At eros sed id lectus neque faucin manus. Eros adipiscing cursus neque nisi metus volutpat sem diam odio. Arcu amet orbitia forra nascetur pellentesque tincidunla.
-            </Text>
-            <Text>
-              Lorem ipsum dolor amet, consectetur adipiscing elit. Per neque this orci nunc interdum pellentesque turpis. Ligula fames per id porta sed erit. Arcu mattium turpis accumsan finibus consect amet. Duis quam officiat nunc finibus aperture nunc. Exercitat ac neque justo cursus posuere sapien Etiam ut.
-            </Text>
-            <Text>
-              Hendrerit enim sint suspendisse ante amet. Ut eget odio fames eu efficitur placerat sed ac vitality. Tempor efficitur posuere posuere justo cursus. Maecenas molestie lacus condimen, orci condimentum digniss est. At eros sed id lectus neque faucin manus. Eros adipiscing cursus neque nisi metus volutpat sem diam odio. Arcu amet orbitia forra nascetur pellentesque tincidunla.
-            </Text>
-            <Text>
-              Lorem ipsum dolor amet, consectetur adipiscing elit. Per neque this orci nunc interdum pellentesque turpis. Ligula fames per id porta sed erit. Arcu mattium turpis accumsan finibus consect amet. Duis quam officiat nunc finibus aperture nunc. Exercitat ac neque justo cursus posuere sapien Etiam ut.
-            </Text>
-            <Text>
-              Hendrerit enim sint suspendisse ante amet. Ut eget odio fames eu efficitur placerat sed ac vitality. Tempor efficitur posuere posuere justo cursus. Maecenas molestie lacus condimen, orci condimentum digniss est. At eros sed id lectus neque faucin manus. Eros adipiscing cursus neque nisi metus volutpat sem diam odio. Arcu amet orbitia forra nascetur pellentesque tincidunla.
-            </Text>
+            {props.article_text.split('/n').map((line, index) => (
+              <p key={index}>{line}</p>
+          ))}
+          </Text>
           </TextSection>
           <LargeBrickWall width="769" height="70" viewBox="0 0 769 70" fill="none">
             <rect x="23" y="17" width="738" height="53" fill="#C3C0C0"/>
@@ -164,8 +156,8 @@ const Slide8 = () => {
             <rect x="347" y="43" width="77" height="23" fill="#CA6F41"/>
             <rect x="17" y="44" width="76" height="23" fill="#CA6F41"/>
           </LargeBrickWall>
-          <Credit large style={{ fontFamily: 'Passion One', fontSize: '2rem' }}>Nick Levie</Credit>
-          <Title>NAME OF THE TITLE</Title>
+          <Credit large style={{ fontFamily: 'Passion One', fontSize: '2rem' }}>{props.article_byline}</Credit>
+          <Title>{props.article_title}</Title>
         </TextContainer>
       </ContentContainer>
     </Slide8Container>
