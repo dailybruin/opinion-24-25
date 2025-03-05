@@ -132,7 +132,7 @@ function App() {
                             textColor={textColor}
                             bgColor={bgColor}
                         />
-                        <Landing credits={data.landing_credits}/>
+                        {/* <Landing credits={data.landing_credits}/> */}
                         <div
                             ref={slideRef}
                             style={{
@@ -146,23 +146,30 @@ function App() {
                             onScroll={handleScroll}
                         >
                             {slides.map((SlideComponent, index) => (
-                                <div
-                                    key={index}
-                                    id={data[index]}
-                                    style={{
-                                        width: '100vw',
-                                        height: '100vh',
-                                        flexShrink: 0,
-                                        backgroundColor: bgColor,
-                                        color: textColor,
-                                        scrollSnapAlign: 'start',
-                                    }}
-                                >
-                                    {React.createElement(SlideComponent, {
-                                        props: data.articles ? data.articles[index] : null,
-                                    })}
-                                </div>
-                            ))}
+                               {index === 0 ? (
+                                  <>
+                                      <Landing credits={data.landing_credits}/>
+                                      <Letter letter={data.letter[0]}/>
+                                    </>
+                                ): (
+                                  <div
+                                      key={index}
+                                      id={data[index]}
+                                      style={{
+                                          width: '100vw',
+                                          height: '100vh',
+                                          flexShrink: 0,
+                                          backgroundColor: bgColor,
+                                          color: textColor,
+                                          scrollSnapAlign: 'start',
+                                      }}
+                                  >
+                                      {React.createElement(SlideComponent, {
+                                          props: data.articles ? data.articles[index] : null,
+                                      })}
+                                  </div>
+                                ))}
+                            )}
                         </div>
                         <PageNavButtons
                             currentSlide={currentSlide}
@@ -170,7 +177,7 @@ function App() {
                             slideRef={slideRef}
                         />
 
-                        <Letter letter={data.letter[0]}/>
+                        {/* <Letter letter={data.letter[0]}/> */}
                         <Footer />
                     </>
                 )}
