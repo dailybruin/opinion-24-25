@@ -9,6 +9,7 @@ const Container = styled.div`
     width: 100%;
     background: url(${BinderClips});
     background-color: #547865;
+    background-repeat: no-repeat;
     position: relative;
     display: flex;
     flex-direction: column;
