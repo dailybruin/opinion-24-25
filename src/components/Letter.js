@@ -68,26 +68,16 @@ const ByLine = styled.div`
 `
 
 
-const Letter = () => {
+const Letter = ({letter}) => {
     return (
         <>
             <Background>
                 <Title>BRUINS LOOK INWARD</Title>
                 <Container>
                     <EditorTitle>LETTER FROM THE EDITOR</EditorTitle>
-                    <Text>Daily we are afforded the opportunity to experiment with versions of ourselves that didn’t previously exist. As we go about our lives, we encounter a highly variable world that presents a dynamic blend of shortcoming and triumph to shape the person we are.
-
-Our time as a Bruin marks a critical segment of our lives during which we have a unique grasp over how this process plays out in real time. We are positioned to be hyper-aware of how our experiences affect us, along with how we can grow from them. 
-
-Consequently, the passions and the people we pursue inevitably yield unforeseen circumstances that test us: how does one manage living up to their own expectations? What about the expectations of others? 
-
-It is daunting to ask ourselves the big questions – to find our “why?”. But it is a beyond worthwhile task.
-
-Contributors to [this flatpage title here] have actively engaged in this process, and they have written about their findings. It is a catalogue of some of the most introspective, inquisitive Bruins out there. Through their hard work, I hope you can glean something that can make your life better. Whether that is a new hobby you revive or a new mindset you take on in your personal life, these writers are likely grappling with things that you have encountered. 
-
-If not, they are likely things that you will encounter; when the time comes, this archive of life lessons and personal insights will be here for you.
-
-Life is a beautiful, messy and senseless game of trial and error, after all. To some of its most critical questions, there may not be a “right” answer, but endeavoring to find it keeps us busy, nonetheless.</Text>
+                    <Text>{letter.text.split('/n').map((line, index) => (
+              <p key={index}>{line}</p>
+          ))}</Text>
                     <ByLine>-Russell Ahmed</ByLine>
                 </Container>
             </Background>
