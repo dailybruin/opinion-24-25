@@ -36,6 +36,11 @@ const ContentContainer = styled.div`
   position: relative;
   margin-top: 4rem;
   z-index: 2;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 90%;
+  }
 `;
 
 const LeftBoxContainer = styled.div`
@@ -46,6 +51,11 @@ const LeftBoxContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 50vh;
+  }
 `;
 
 const ArticleImage = styled.img`
@@ -67,33 +77,44 @@ const ImageCredit = styled.div`
   font-size: 0.8rem;
   color: #4E3A24;
   z-index: 5; /* Higher than the image to ensure it's on top */
-
   padding: 2px 6px;
   border-radius: 4px;
 `;
 
 const RightBoxContainer = styled.div`
   position: relative;
-  width: 45%; /* Adjusted to match the left box */
-  height: 85%;
+  width: 60%; /* Adjusted to match the left box */
+  height: 80%;
   background: url(${SlimeRightBox}) center/contain no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+
   z-index: 2;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 50vh;
+    padding: 1rem;
+  }
 `;
 
 const TextContainer = styled.div`
-  width: 80%;
+  width: 70%; /* Slightly reduced width to prevent overflow */
   height: 75%;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center text vertically */
+  justify-content: flex-start; /* Align text to the top */
   align-items: center; /* Center text horizontally */
-  overflow: hidden;
+  overflow: hidden; /* Prevent overflow */
   margin-top: -2rem;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 100%;
+    padding: 0 1rem;
+  }
 `;
 
 const Title = styled.div`
@@ -111,11 +132,13 @@ const ArticleText = styled.div`
   font-size: 1rem;
   color: #333;
   line-height: 1.5;
-  height: 62%;
+  height: 100%; /* Take up remaining space */
   width: 100%;
-  overflow-y: auto;
+  overflow-y: auto; /* Enable vertical scrolling */
   padding: 0 1rem;
   text-align: justify;
+  overflow-wrap: break-word; /* Ensure long words break and wrap */
+  word-wrap: break-word; /* Fallback for older browsers */
 `;
 
 const Slide2Desktop = ({ props }) => {
