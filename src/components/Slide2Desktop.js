@@ -68,11 +68,12 @@ const RightBoxContainer = styled(BoxContainer)`
 /* Image inside Left Box */
 const ImageContainer = styled.div`
   width: 80%;  
-  height: 80%;
+  height: 75%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   overflow: hidden;
+  margin-top: -4rem;
 `;
 
 const ArticleImage = styled.img`

@@ -93,13 +93,16 @@ const ArticleImageWrapper = styled.div`
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  z-index:1;
 `;
 
 /* Image */
 const ArticleImage = styled.img`
-  width: 80%;
-  height: 80%;
-  object-fit: cover;
+  width: 75%;
+  height: auto%;
+  max-height: 100%;
+  object-fit: contain;
+  margin-top:-3.5rem;
   display: block;
 `;
 
@@ -110,7 +113,7 @@ const ImageCredit = styled.div`
   font-family: "Baskervville", serif;
   font-size: 0.8rem;
   color: #4E3A24;
-  z-index: 4;
+  z-index: 8;
 `;
 
 /* Bottom Box - Article Text */
