@@ -76,9 +76,9 @@ const ImageContainer = styled.div`
 `;
 
 const ArticleImage = styled.img`
-  width: 100%;
+  width: 150%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 `;
 
 /* Text inside Right Box */
@@ -124,6 +124,7 @@ const ImageCredit = styled.div`
   font-family: "Baskervville", serif;
   font-size: 0.8rem;
   color: #4E3A24;
+  z-index: -1;
 `;
 
 
@@ -138,7 +139,7 @@ const Slide2Desktop = ({ props }) => {
         {/* Left Box (Image inside slime container) */}
         <LeftBoxContainer>
           <ImageContainer>
-            <ArticleImage src={props.article_img} alt="Article Image" />
+            <ArticleImage src={props.article_image} alt="Article Image" />
           </ImageContainer>
           <ImageCredit>({props.illustration_byline})</ImageCredit>
         </LeftBoxContainer>
@@ -147,7 +148,9 @@ const Slide2Desktop = ({ props }) => {
         <RightBoxContainer>
           <TextContainer>
             <Title>{props.article_title}</Title>
-            <ArticleText>{props.article_text}</ArticleText>
+            <ArticleText>{props.article_text.split('/n').map((line, index) => (
+              <p key={index}>{line}</p>
+          ))}</ArticleText>
           </TextContainer>
         </RightBoxContainer>
       </ContentContainer>
