@@ -54,6 +54,7 @@ const TextContainer = styled.div`
     background-color: #393766;
     border: 1em solid white; 
     margin-left: .5em;
+    margin-top: -5.7em
 `;
 
 const CarouselContainer = styled.div`
@@ -62,6 +63,7 @@ const CarouselContainer = styled.div`
     left: 920px;
     transform: translateX(-50%) rotate(-9deg); 
     width: 23em;
+    height: 17.5em;
     max-width: 90%;
     margin-bottom: 0;
 `;
