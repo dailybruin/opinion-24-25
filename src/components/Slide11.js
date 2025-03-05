@@ -7,6 +7,7 @@ import BylineIcon from "../images/BylineIcon11.svg"
 import HeartIcon from "../images/HeartIcon.svg"
 
 const Background = styled.div`
+    padding-top: 1rem;
     height: 100vh;
     width: 100%;
     background: #69937D;
@@ -14,6 +15,7 @@ const Background = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    overflow-x: auto;
 `
 
 const Container = styled.div`
@@ -41,14 +43,22 @@ const TitleContainer = styled.div`
     box-sixing: border-box;
     margin: 1rem;
     padding-left: 1rem;
+    gap: 2rem;
+
+    img {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
 `
 
-const Title = styled.div`
+const Title = styled.a`
     width: 72.3125rem;
     height: 2.375rem;
     color: #547966;
     font-family: "Passion One";
     font-size: 2.1875rem;
+    text-decoration: none;
+    cursor: pointer;
 `
 
 const ContentContainer = styled.div`
@@ -108,11 +118,12 @@ const ArticleContainer = styled.div`
     border: 4px solid #CF848E;
     color: #000;
     font-family: Baskerville;
-    font-size: 0.75rem;
+    font-size: 1rem;
     padding: 2rem;
     text-align: left;
     box-sizing: border-box;
     margin: 0 2rem;
+    overflow-y: auto;
 `
 
 const CarouselContainer = styled.div`
@@ -206,25 +217,23 @@ const PhotoCarousel = ({ images }) => {
         <LeftArrow />
       </LeftButton>
 
-      <ImageContainer image={images[currentIndex]} />
+      <ImageContainer image={images[currentIndex]?.image || "https://via.placeholder.com/600x400"} />
 
       <RightButton onClick={nextImage} disabled={currentIndex === images.length - 1}>
         <RightArrow />
       </RightButton>
 
-      <Credit>{images[currentIndex].credit}</Credit>
+      <Credit>{images[currentIndex]?.credit || "(Courtesy of NAME NAME/place)"}</Credit>
     </CarouselContainer>
   );
 };
 
+
 const Slide11 = ({ props }) => {
 
     const {
-        article_title = "TITLE OF THE STORY CAN GO HERE TITLE OF THE STORY CAN GO HERE TITLE OF THE",
-        article_url,
-        article_byline = "Tavian Williams",
-        article_img = [],
-        illustration_byline = []
+        article_img = [props.article_image_1, props.article_image_2, props.article_image_3],
+        illustration_byline = [],
     } = props || {};
 
     const images = article_img.map((img, index) => ({
@@ -252,7 +261,7 @@ const Slide11 = ({ props }) => {
 
                 </ArticleContainer>
                 <CommentContainer>
-                    <img src={HeartIcon} />
+                    <img src={HeartIcon} alt="HeartIcon" />
                     <Comment>
                         Leave a comment...
                     </Comment>

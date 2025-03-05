@@ -236,10 +236,7 @@ const PhotoCarousel = ({ images }) => {
 const Slide11 = ({ props }) => {
 
     const {
-        article_title = "TITLE OF THE STORY CAN GO HERE TITLE OF THE STORY CAN GO HERE TITLE OF THE",
-        article_url,
-        article_byline = "Tavian Williams",
-        article_img = [],
+        article_img = [props.article_image_1, props.article_image_2, props.article_image_3],
         illustration_byline = []
     } = props || {};
 

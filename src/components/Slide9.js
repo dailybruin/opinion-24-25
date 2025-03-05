@@ -104,7 +104,7 @@ const ArticleContainer = styled.div`
     background: #FFF;
     color: #000;
     font-family: Baskerville;
-    font-size: 0.75rem;
+    font-size: 1rem;
     display: flex;
     flex-direction: column; 
     align-items: flex-start;

@@ -36,27 +36,28 @@ function App() {
     const slideRef = useRef(null);
 
     const names = [
-        "Q&A", "CONFIDENCE", "JOURNAL", "SUPEREGO",
+        "HOME", "Q&A", "CONFIDENCE", "JOURNAL", "SUPEREGO",
         "E-IDENTITY", "EXPEDITION", "HOBBY",
         "DEPRECATION", "PREJUDICE", "CAREER", "BODY"
     ];
 
-  const slideColors = [
-
-    { bgColor: '#3C3562', textColor: 'white' },
-    { bgColor: '#FFE5B0', textColor: '#4E3A24' },
-    { bgColor: '#FBE5B6', textColor: '#547966' },
-    { bgColor: '#FFFFFF', textColor: '#CE838E' },
-    { bgColor: '#FBE6B6', textColor: '#CF848E' },
-    { bgColor: '#383765', textColor: '#FBE6B6' },
-    { bgColor: '#383765', textColor: '#FBE6B6' },
-    { bgColor: '#CE838E', textColor: '#383765' },
-    { bgColor: '#383765', textColor: '#B4CCFB' },
-    { bgColor: '#383765', textColor: '#FBE6B7' },
-    { bgColor: '#FFFFFF', textColor: '#547966' },
-  ];
+    const slideColors = [
+        { bgColor: 'black', textColor: 'white' },
+        { bgColor: '#3C3562', textColor: 'white' },
+        { bgColor: '#FFE5B0', textColor: '#4E3A24' },
+        { bgColor: '#FBE5B6', textColor: '#547966' },
+        { bgColor: '#FFFFFF', textColor: '#CE838E' },
+        { bgColor: '#FBE6B6', textColor: '#CF848E' },
+        { bgColor: '#383765', textColor: '#FBE6B6' },
+        { bgColor: '#383765', textColor: '#FBE6B6' },
+        { bgColor: '#CE838E', textColor: '#383765' },
+        { bgColor: '#383765', textColor: '#B4CCFB' },
+        { bgColor: '#383765', textColor: '#FBE6B7' },
+        { bgColor: '#FFFFFF', textColor: '#547966' },
+    ];
 
     const slides = [
+        Letter,
         Slide1,
         Slide2,
         Slide3,
@@ -107,19 +108,9 @@ function App() {
                 <Header />
                 {screenWidth < 900 ? (
                     <>
-                        <Landing credits={data.landing_credits}/>
-                        <Letter letter={data.letter[0]}/>
-                        <Slide1_Mobile props={data.articles[0]} />
-                        <Slide2_Mobile props={data.articles[1]} />
-                        <Slide3_Mobile props={data.articles[2]} />
-                        <Slide4_Mobile props={data.articles[3]} />
-                        <Slide5_Mobile props={data.articles[4]} />
-                        <Slide6_Mobile props={data.articles[5]} />
-                        <Slide7_Mobile props={data.articles[6]} />
-                        <Slide9_Mobile props={data.articles[8]} />
-                        <Slide10_Mobile props={data.articles[9]} />
-                        <Slide11_Mobile props={data.articles[10]} />
-                        <FooterMobile/>
+                        <Landing credits={data.landing_credits} />
+                        <Letter letter={data.letter[0]} />    
+                        <FooterMobile />
                     </>
                 ) : (
                     <>
@@ -131,7 +122,6 @@ function App() {
                             textColor={textColor}
                             bgColor={bgColor}
                         />
-                        <Landing credits={data.landing_credits}/>
                         <div
                             ref={slideRef}
                             style={{
@@ -144,10 +134,26 @@ function App() {
                             }}
                             onScroll={handleScroll}
                         >
-                            {slides.map((SlideComponent, index) => (
+                            <div
+                                style={{
+                                    width: '100vw',
+                                    height: '100vh',
+                                    flexShrink: 0,
+                                    backgroundColor: bgColor,
+                                    color: textColor,
+                                    scrollSnapAlign: 'start',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                }}
+                            >
+                                <Landing credits={data.landing_credits} />
+                                <Letter letter={data.letter[0]} />
+                            </div>
+                            {slides.slice(1).map((SlideComponent, index) => (
                                 <div
                                     key={index}
-                                    id={data[index]}
                                     style={{
                                         width: '100vw',
                                         height: '100vh',
@@ -157,23 +163,19 @@ function App() {
                                         scrollSnapAlign: 'start',
                                     }}
                                 >
-                                    {React.createElement(SlideComponent, {
-                                        props: data.articles ? data.articles[index] : null,
-                                    })}
+                                    <SlideComponent props={data.articles[index]} />
                                 </div>
                             ))}
                         </div>
+
                         <PageNavButtons
                             currentSlide={currentSlide}
                             setCurrentSlide={setCurrentSlide}
                             slideRef={slideRef}
                         />
-
-                        <Letter letter={data.letter[0]}/>
                         <Footer />
                     </>
                 )}
-            
             </div>
         )
     );

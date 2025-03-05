@@ -13,6 +13,7 @@ const Background = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow-x: auto;
 `
 
 const Container = styled.div`
@@ -28,12 +29,14 @@ const Container = styled.div`
     display: flex;
 `
 
-const Title = styled.div`
+const Title = styled.a`
     width: 62.875rem;
     color: #383765;
     font-family: "Passion One";
     font-size: 3.125rem;
     text-align: left;
+    text-decoration: none;
+    cursor: pointer;
 `
 
 const ButtonContainer = styled.div`
@@ -138,7 +141,7 @@ const ArticleContainer = styled.div`
     border: 4px solid rgba(56, 55, 101, 0.70);
     color: #383765;
     font-family: "Baskervville";
-    font-size: 0.75rem;
+    font-size: 1rem;
     box-sizing: border-box;
     padding: 2rem;
     text-align: left;
@@ -188,26 +191,26 @@ const Slide10 = ({ props }) => {
                     </Byline>
                     <TagColumn>
                         <Tag>
-                            <img src={SalaryIcon} />
+                            <img src={SalaryIcon} alt="SalaryIcon" />
                             High salary
                         </Tag>
                         <Tag>
-                            <img src={FullTimeIcon} />
+                            <img src={FullTimeIcon} alt="FullTimeIcon" />
                             Full-time
                         </Tag>
                     </TagColumn>
                     <TagColumn>
                         <Tag>
-                            <img src={RequirementIcon} />
+                            <img src={RequirementIcon} alt="RequirementIcon" />
                             Must choose one career only
                         </Tag>
                         <Tag>
-                            <img src={RequirementIcon} />
+                            <img src={RequirementIcon} alt="RequirementIcon" />
                             Must be willing to take risks
                         </Tag>
                     </TagColumn>
                 </BylineTagContainer>
-                    <ImageContainer image={props.article_img} />
+                    <ImageContainer image={props.article_image} />
                     <Credit>{props.illustration_byline}</Credit>
                     </LeftColumn>
                     <ArticleContainer>
