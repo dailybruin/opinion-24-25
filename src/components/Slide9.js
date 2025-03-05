@@ -115,12 +115,11 @@ const ArticleContainer = styled.div`
 const ImageContainer = styled.div`
     width: 44.03106rem;
     height: 57.78638rem;
-    aspect-ratio: 704.50/924.58;
     background: url(${(props) => props.image});
     background-repeat: no-repeat;
     position: relative;
-    left: -2rem;
-    top: .75rem;
+    left: 0rem;
+    top: 0rem;
 `
 
 const BackgroundImage1 = styled.div`
@@ -150,11 +149,11 @@ const BackgroundImage2 = styled.div`
 const BackgroundImage3 = styled.div`
     width: 44.03106rem;
     height: 19.85413rem;
-    transform: rotate(410deg);
+    transform: rotate(0deg);
     background-cover: contain;
-    background: url(${(props) => props.image}) bottom right / 100% 291.055% no-repeat;;
+    background: url(${(props) => props.image}) 30% 50% / 100% 200.055% no-repeat;
     position: absolute;
-    right: 70rem;
+    left: -15rem;
     top: 45rem;
     opacity: 1;
 `
