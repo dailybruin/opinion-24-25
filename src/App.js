@@ -58,7 +58,7 @@ function App() {
   ];
 
     const slides = [
-        LandingLetter,
+        Letter,
         Slide1,
         Slide2,
         Slide3,
@@ -125,6 +125,7 @@ function App() {
                     </>
                 ) : (
                     <>
+                        {currentSlide === 1 && <Landing credits={data.landing_credits} style={{ zIndex: 1 }} />}
                         <Nav
                             data={names}
                             currentSlide={currentSlide}
@@ -133,7 +134,7 @@ function App() {
                             textColor={textColor}
                             bgColor={bgColor}
                         />
-                        {/* <Landing credits={data.landing_credits}/> */}
+                        {/* <Landing credits={data.landing_credits} /> */}
                         <div
                             ref={slideRef}
                             style={{
@@ -143,6 +144,7 @@ function App() {
                                 width: '100%',
                                 height: '100vh',
                                 scrollBehavior: 'smooth',
+                                zIndex: '2' 
                             }}
                             onScroll={handleScroll}
                         >
@@ -163,6 +165,7 @@ function App() {
                                         props: data.articles ? data.articles[index] : null,
                                     })}
                                 </div>
+                                  
                             ))}
                         </div>
                         <PageNavButtons
