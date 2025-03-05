@@ -136,7 +136,9 @@ const Slide1Mobile = ({ props }) => {
       <ClipboardImage src={ClipboardSVG} alt="Clipboard" />
 
       {/* Scrollable Clipboard Text */}
-      <ClipboardTextContainer>{props.article_text}</ClipboardTextContainer>
+      <ClipboardTextContainer> {props.article_text.split('/n').map((line, index) => (
+              <p key={index}>{line}</p>
+          ))}</ClipboardTextContainer>
 
       {/* Pen */}
       <Pen src={PenIcon} alt="Pen" />

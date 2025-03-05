@@ -195,7 +195,9 @@ const Slide2Mobile = ({ props }) => {
         {/* Bottom Text Box */}
         <BottomBoxContainer>
           <BottomBox>
-            <ArticleText>{props.article_text}</ArticleText>
+            <ArticleText>{props.article_text.split('/n').map((line, index) => (
+              <p key={index}>{line}</p>
+          ))}</ArticleText>
           </BottomBox>
           <SlimeBottom src={SlimeBottomBox} alt="Bottom Box Slime" />
         </BottomBoxContainer>

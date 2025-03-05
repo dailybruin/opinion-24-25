@@ -101,7 +101,9 @@ const Slide6 = ({props}) => {
         <SlideWrapper>
             <Background>
                 <LeftTextContainer>
-                    {props.article_text}
+                {props.article_text.split('/n').map((line, index) => (
+              <p key={index}>{line}</p>
+          ))}
                 </LeftTextContainer>
 
                 <RightContentContainer>

@@ -93,7 +93,9 @@ const Slide7_Mobile = ({props}) => {
             <Title>{props.article_title}</Title>
             <Byline>{props.article_byline}</Byline>
             <TextContainer>
-                    {props.article_text}
+            {props.article_text.split('/n').map((line, index) => (
+              <p key={index}>{line}</p>
+          ))}
             </TextContainer>
             <CarouselContainer>
                 <Carousel data={image_slides} />

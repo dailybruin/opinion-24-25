@@ -102,7 +102,9 @@ const Slide5 = ({props}) => (
 
       <PhoneContainer>
         <ScrollableText>
-          {props.article_text}
+        {props.article_text.split('/n').map((line, index) => (
+              <p key={index}>{line}</p>
+          ))}
         </ScrollableText>
       </PhoneContainer>
     </ContentWrapper>

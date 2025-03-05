@@ -78,7 +78,9 @@ const Slide6Mobile = ({props}) => {
             </Title>
             <Map src={MapImage} alt="World Map" />
             <TextContainer>
-                {props.article_text}
+            {props.article_text.split('/n').map((line, index) => (
+              <p key={index}>{line}</p>
+          ))}
             </TextContainer>
             <PhotoBoxContainer>
                 <PhotoBox />
