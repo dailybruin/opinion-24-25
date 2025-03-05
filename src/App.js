@@ -122,6 +122,11 @@ function App() {
                             textColor={textColor}
                             bgColor={bgColor}
                         />
+                        {currentSlide === 1 ? (
+                          <>
+                          <Landing credits={data.landing_credits} />
+                          </>
+                        ) : ( null )}
                         <div
                             ref={slideRef}
                             style={{
@@ -138,6 +143,7 @@ function App() {
                                 style={{
                                     width: '100vw',
                                     height: '100vh',
+                                    paddingTop: 270,
                                     flexShrink: 0,
                                     backgroundColor: bgColor,
                                     color: textColor,
@@ -148,7 +154,7 @@ function App() {
                                     justifyContent: 'center',
                                 }}
                             >
-                                <Landing credits={data.landing_credits} />
+                                {/* <Landing credits={data.landing_credits} /> */}
                                 <Letter letter={data.letter[0]} />
                             </div>
                             {slides.slice(1).map((SlideComponent, index) => (
