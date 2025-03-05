@@ -28,6 +28,7 @@ import Slide7_Mobile from "./components/Slide7_Mobile.js";
 import Slide9_Mobile from "./components/Slide9_Mobile.js";
 import Slide10_Mobile from "./components/Slide10_Mobile.js";
 import Slide11_Mobile from "./components/Slide11_Mobile.js";
+import LandingLetter from "./components/LandingLetter.js";
 
 function App() {
     const [data, setData] = useState(null);
@@ -36,13 +37,13 @@ function App() {
     const slideRef = useRef(null);
 
     const names = [
-        "Q&A", "CONFIDENCE", "JOURNAL", "SUPEREGO",
+        "HOME", "Q&A", "CONFIDENCE", "JOURNAL", "SUPEREGO",
         "E-IDENTITY", "EXPEDITION", "HOBBY",
         "DEPRECATION", "PREJUDICE", "CAREER", "BODY"
     ];
 
   const slideColors = [
-
+    { bgColor: 'black', textColor: 'white' }, // temporary colors for home page (landing + letter)
     { bgColor: '#3C3562', textColor: 'white' },
     { bgColor: '#FFE5B0', textColor: '#4E3A24' },
     { bgColor: '#FBE5B6', textColor: '#547966' },
@@ -57,6 +58,7 @@ function App() {
   ];
 
     const slides = [
+        LandingLetter,
         Slide1,
         Slide2,
         Slide3,
@@ -131,7 +133,7 @@ function App() {
                             textColor={textColor}
                             bgColor={bgColor}
                         />
-                        <Landing credits={data.landing_credits}/>
+                        {/* <Landing credits={data.landing_credits}/> */}
                         <div
                             ref={slideRef}
                             style={{
@@ -169,7 +171,7 @@ function App() {
                             slideRef={slideRef}
                         />
 
-                        <Letter />
+                        {/* <Letter /> */}
                         <Footer />
                     </>
                 )}
