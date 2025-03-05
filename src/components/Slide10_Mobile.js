@@ -177,14 +177,14 @@ const Slide10_Mobile = ({ props }) => {
         <Background>
             <Container>
                 <TopRow>
-                    <Title>{article_title}</Title>
+                    <Title>{props.article_title}</Title>
                     <Byline>
                         <img src={BylineIcon} />
-                        {article_byline}
+                        {props.article_byline}
                     </Byline>
                 </TopRow>
-                <ImageContainer image={article_img} />
-                <Credit>{illustration_byline}</Credit>
+                <ImageContainer image={props.article_img} />
+                <Credit>{props.illustration_byline}</Credit>
                 <TagContainer>
                     <TagColumn>
                         <Tag>
@@ -208,15 +208,9 @@ const Slide10_Mobile = ({ props }) => {
                     </TagColumn>
                 </TagContainer>
                     <ArticleContainer>
-                    Lorem ipsum odor amet, consectetuer adipiscing elit. Per tortor duis sociosqu interdum pellentesque turpis. Ligula fames per id porta sed felis. Fermentum urna accumsan ligula convallis phasellus quis. Proin ipsum efficitur rutrum bibendum aptent non. Faucibus ac netus justo rutrum posuere sagittis libero ut.
-
-                    Hendrerit etiam nisi suspendisse justo amet. In felis nibh lacus efficitur platea leo nisl ac cubilia. Torquent efficitur natoque natoque quis aenean placerat; posuere justo congue. Maecenas molestie luctus conubia; orci condimentum dapibus est. At arcu sed id lacinia ornare lorem mauris. Eros sociosqu cursus suscipit metus sodales sem phasellus neque fermentum. Volutpat sagittis ex finibus potenti dis. Accumsan amet cubilia litora nascetur pellentesque malesuada.
-
-                    Leo congue hendrerit egestas nisi ex ipsum per tempor. Curae consequat diam accumsan aliquam suscipit lacus consectetur. Feugiat duis tempus pharetra suspendisse hendrerit senectus. Curabitur natoque tincidunt cubilia placerat est felis. Ligula nibh convallis elementum morbi est auctor orci scelerisque etiam. Est velit netus adipiscing aliquam nullam diam nisi.
-
-                    Feugiat mus parturient venenatis amet bibendum porttitor cursus aliquam. Quisque hac justo curae lectus conubia ante cubilia natoque. Ac primis conubia magnis accumsan sociosqu in fames. Orci accumsan eget montes sociosqu facilisis a. Diam dis leo suspendisse congue himenaeos inceptos curabitur. Magna vulputate justo ornare, blandit mus id ante.
-
-                    Litora ac sociosqu eleifend molestie nostra, nam porttitor viverra. Ac felis hac urna hac tincidunt. Semper mus curae luctus eu accumsan tempus. Rutrum litora metus vivamus feugiat conubia vestibulum sit vehicula himenaeos. Sapien consectetur elementum dolor ut; justo natoque habitant senectus? Gravida fusce accumsan porttitor fusce sociosqu nostra. Suscipit turpis magnis aliquam cras mattis laoreet maecenas erat eu.
+                    {props.article_text.split('/n').map((line, index) => (
+              <p key={index}>{line}</p>
+          ))}
                     </ArticleContainer>
                 <ButtonContainer>
                     <Apply>Apply now</Apply>

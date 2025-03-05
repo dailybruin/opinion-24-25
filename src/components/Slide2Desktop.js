@@ -129,7 +129,9 @@ const Slide2Desktop = ({ props }) => {
         {/* Right Box (Text inside slime container) */}
         <RightBoxContainer>
           <Title>{props.article_title}</Title>
-          <ArticleText>{props.article_text}</ArticleText>
+          <ArticleText> {props.article_text.split('/n').map((line, index) => (
+              <p key={index}>{line}</p>
+          ))}</ArticleText>
         </RightBoxContainer>
       </ContentContainer>
     </Background>

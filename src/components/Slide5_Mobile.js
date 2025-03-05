@@ -44,7 +44,9 @@ const Slide5_Mobile = ({props}) => (
   <Background>
     <PhoneContainer>
       <ScrollableText>
-        {props.article_text}
+      {props.article_text.split('/n').map((line, index) => (
+              <p key={index}>{line}</p>
+          ))}
       </ScrollableText>
     </PhoneContainer>
   </Background>

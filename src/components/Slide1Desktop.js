@@ -135,9 +135,10 @@ const Slide1Desktop = ({ props }) => {
       <ClipboardImage src={ClipboardSVG} alt="Clipboard" />
 
       {/* Scrollable Clipboard Text */}
-      <ClipboardTextContainer>The Social Vulnerability Index (SVI) dataset for Los Angeles county includes information about socioeconomic and demographic factors impacting the vulnerabilities of the LA community. The dataset includes tract identifiers (Tract 2020, Tract Label, Location), geographical attributes (Area in Square Miles), and population estimates from the 2016-2020 American Community Survey (ACS). It also includes estimates for housing units and households, along with measures of uncertainty (MOE). The SVI is calculated based on four themes: Socioeconomic Status, Household Characteristics, Racial and Ethnic Minority Status, and Housing Type/Transportation. Each of these four themes has a summary score and percentile ranking, contributing to an overall vulnerab
-      The Social Vulnerability Index (SVI) dataset for Los Angeles county includes information about socioeconomic and demographic factors impacting the vulnerabilities of the LA community. The dataset includes tract identifiers (Tract 2020, Tract Label, Location), geographical attributes (Area in Square Miles), and population estimates from the 2016-2020 American Community Survey (ACS). It also includes estimates for housing units and households, along with measures of uncertainty (MOE). The SVI is calculated based on four themes: Socioeconomic Status, Household Characteristics, Racial and Ethnic Minority Status, and Housing Type/Transportation. Each of these four themes has a summary score and percentile ranking, contributing to an overall vulnerab
-      The Social Vulnerability Index (SVI) dataset for Los Angeles county includes information about socioeconomic and demographic factors impacting the vulnerabilities of the LA community. The dataset includes tract identifiers (Tract 2020, Tract Label, Location), geographical attributes (Area in Square Miles), and population estimates from the 2016-2020 American Community Survey (ACS). It also includes estimates for housing units and households, along with measures of uncertainty (MOE). The SVI is calculated based on four themes: Socioeconomic Status, Household Characteristics, Racial and Ethnic Minority Status, and Housing Type/Transportation. Each of these four themes has a summary score and percentile ranking, contributing to an overall vulnerab
+      <ClipboardTextContainer>
+      {props.article_text.split('/n').map((line, index) => (
+              <p key={index}>{line}</p>
+          ))}
       </ClipboardTextContainer>
 
       {/* Pen */}

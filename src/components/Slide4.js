@@ -135,7 +135,9 @@ const Slide4 = ({ props }) => {
                 <Byline>{props.article_byline}</Byline>
                 <TextContainer>
                     <Page6>
-                        <Text>{props.article_text}</Text>
+                        <Text>{props.article_text.split('/n').map((line, index) => (
+              <p key={index}>{line}</p>
+          ))}</Text>
                     </Page6>
                 </TextContainer>
                 <ImageContainer>
