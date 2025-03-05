@@ -38,7 +38,13 @@ const PageNavButtons = ({ currentSlide, setCurrentSlide, slideRef }) => {
 
   const homePage = () => {
     // go to the landing page
-    window.location.href = '/';
+    // window.location.href = '/';
+    const slideWidth = slideRef.current.offsetWidth;
+    const scrollToPosition = 0 * slideWidth; 
+    slideRef.current.scrollTo({
+      left: scrollToPosition,
+      behavior: "smooth",
+    });
     console.log("home page");
   };
 

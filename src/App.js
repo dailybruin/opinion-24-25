@@ -36,13 +36,13 @@ function App() {
     const slideRef = useRef(null);
 
     const names = [
-        "Q&A", "CONFIDENCE", "JOURNAL", "SUPEREGO",
+        "HOME", "Q&A", "CONFIDENCE", "JOURNAL", "SUPEREGO",
         "E-IDENTITY", "EXPEDITION", "HOBBY",
         "DEPRECATION", "PREJUDICE", "CAREER", "BODY"
     ];
 
   const slideColors = [
-
+    { bgColor: 'black', textColor: 'white' }, // temporary color for home
     { bgColor: '#3C3562', textColor: 'white' },
     { bgColor: '#FFE5B0', textColor: '#4E3A24' },
     { bgColor: '#FBE5B6', textColor: '#547966' },
@@ -57,6 +57,7 @@ function App() {
   ];
 
     const slides = [
+        Letter,
         Slide1,
         Slide2,
         Slide3,
