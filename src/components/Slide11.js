@@ -123,6 +123,7 @@ const ArticleContainer = styled.div`
     text-align: left;
     box-sizing: border-box;
     margin: 0 2rem;
+    overflow-y: auto;
 `
 
 const CarouselContainer = styled.div`

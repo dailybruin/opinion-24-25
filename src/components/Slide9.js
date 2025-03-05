@@ -12,7 +12,6 @@ const Background = styled.div`
     overflow: hidden;
     justify-content: space-between;
     position: relative;
-    overflow-x: auto;
 `
 
 const Title = styled.a`
@@ -79,6 +78,7 @@ const Circle1 = styled(Circle)`
     border: 43px solid #B4CCFB;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.24);
+    pointer-events: none;
 `
 
 const Circle2 = styled(Circle)`
@@ -87,6 +87,7 @@ const Circle2 = styled(Circle)`
     border: 17px solid rgba(180, 204, 251, 0.85);
     backdrop-filter: blur(2px);
     padding: 1.5rem;
+    pointer-events: none;
 `
 
 const Circle3 = styled(Circle)`
@@ -95,22 +96,47 @@ const Circle3 = styled(Circle)`
     border: 17px solid rgba(180, 204, 251, 0.85);
     backdrop-filter: blur(2px);
     padding: 1.5rem;
+    pointer-events: none;
 `
 
 const ArticleContainer = styled.div`
     width: 28.77213rem;
-    height: 41.62031rem;
-    border-radius: 8.3125rem;
-    background: #FFF;
-    color: #000;
-    font-family: Baskerville;
-    font-size: 0.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5rem 2rem;
-    text-align: left;
-`
+  height: 41.62031rem;
+  border-radius: 8.3125rem;
+  background: #FFF;
+  color: #000;
+  font-family: Baskerville;
+  font-size: 0.75rem;
+
+  /* Padding for comfortable spacing */
+  padding: 6rem 2rem;
+
+  display: flex;
+  align-items: center;
+  min-height: 0; 
+  
+`;
+
+const TextContainer = styled.div`
+  /* 70% of the ArticleContainer’s width & height */
+  width: 100%;
+  height: 70%;
+
+  /* Enable internal scrolling */
+  overflow-y: auto;
+  box-sizing: border-box;
+
+  /* Add some padding if you like */
+  padding: 1rem;  
+
+  /* Text styling */
+  color: #000;
+  font-family: Baskerville;
+  font-size: 0.75rem;
+  z-index: 10;
+  position: relative;
+  user-select: text;
+`;
 
 const ImageContainer = styled.div`
     width: 50.03106rem;
@@ -191,9 +217,11 @@ const Slide9 = ({ props }) => {
                             <BackgroundImage1 image={Slide9Image2} />
                             <BackgroundImage2 image={Slide9Image2} />
                             <ArticleContainer>
-                            {props.article_text.split('/n').map((line, index) => (
-              <p key={index}>{line}</p>
-          ))}
+                            <TextContainer>
+                                {props.article_text.split('/n').map((line, index) => (
+                                    <p key={index}>{line}</p>
+                                ))}
+                            </TextContainer>
                             </ArticleContainer>
                         </Circle1>
                     </Circle2>
