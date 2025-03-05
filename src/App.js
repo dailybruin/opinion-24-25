@@ -108,7 +108,7 @@ function App() {
                 {screenWidth < 900 ? (
                     <>
                         <Landing credits={data.landing_credits}/>
-                        <Letter/>
+                        <Letter letter={data.letter[0]}/>
                         <Slide1_Mobile props={data.articles[0]} />
                         <Slide2_Mobile props={data.articles[1]} />
                         <Slide3_Mobile props={data.articles[2]} />
@@ -169,7 +169,7 @@ function App() {
                             slideRef={slideRef}
                         />
 
-                        <Letter />
+                        <Letter letter={data.letter[0]}/>
                         <Footer />
                     </>
                 )}
