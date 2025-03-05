@@ -48,7 +48,7 @@ const LeftTextContainer = styled.div`
 const RightContentContainer = styled.div`
     position: absolute;
     top: 50%;
-    left: calc(60vw - (750px / 2));  // Centered around 60%, and slightly larger
+    left: calc(60vw - (35em / 2));  // Centered around 60%, and slightly larger
     width: 750px;
     height: auto;
     transform: translateY(-50%);
@@ -76,14 +76,14 @@ const Title = styled.div`
 
 const PhotoBoxContainer = styled.div`
     display: flex;
-    gap: 13px;
-    margin-top: 1.5rem;
+    gap: 4%;
+    margin-top: 3rem;
     transform: translateX(-5%);
 `;
 
 const PhotoBox = styled.div`
-    width: 250px;
-    height: 250px;
+    width: 15em;
+    height: 10em;
     background-color: #FBE6B6;
     position: relative;
     overflow: hidden;

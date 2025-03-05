@@ -90,7 +90,7 @@ const Title = styled.div`
     height: fit-content;
     font-family: Passion One;
     font-weight: 400;
-    font-size: 5vw;
+    font-size: 4vw;
     line-height: 66.06px;
     letter-spacing: 0%;
     text-align: right;
