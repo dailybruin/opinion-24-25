@@ -198,11 +198,6 @@ const ArticleContainer = styled.div`
 
 const Slide3 = ({ props }) => {
 
-    const {
-        article_title = "HEADLINE CAN GO HERE HERE IS HEADLINE SPACE MORE HEADLINE HERE",
-        article_url,
-        article_byline = "Anglina Alkhouri",
-    } = props || {};
 
     return (
         <Background>
@@ -212,13 +207,13 @@ const Slide3 = ({ props }) => {
                     <Page2 />
                     <Page3>
                         <Title>
-                            {article_title}
+                            {props.article_title}
                         </Title>
                         <Byline>
-                            {article_byline}
+                            {props.article_byline}
                         </Byline>
                         <LineContainer>
-                            {[...Array(7)].map((_, index) => (
+                            {[...Array(5)].map((_, index) => (
                                 <LineRow key={index}>
                                     <CircleIcon>
                                         <CheckIcon src={Check} checked={[1, 3, 4].includes(index)} />

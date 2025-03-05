@@ -81,7 +81,7 @@ const Text = styled.div`
     height: 27rem;
     color: #000;
     font-family: Baskerville;
-    font-size: 0.75rem;
+    font-size: 1rem;
     text-align: left;
     overflow-y: auto;
 `

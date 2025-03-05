@@ -185,7 +185,7 @@ const Slide2Mobile = ({ props }) => {
         <TopBoxContainer>
           <TopBox>
             <ArticleImageWrapper>
-              <ArticleImage src={props.article_img} alt="Article Image" />
+              <ArticleImage src={props.article_image} alt="Article Image" />
             </ArticleImageWrapper>
             <ImageCredit>({props.illustration_byline})</ImageCredit>
           </TopBox>

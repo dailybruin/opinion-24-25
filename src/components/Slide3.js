@@ -7,13 +7,15 @@ import Pencil from "../images/Pencil.png"
 import Stroke from "../images/Stroke.svg"
 
 const Background = styled.div`
+    padding-top: 2rem;
     height: 100vh;
     width: 100%;
     background: #CE838E;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: row;
+    overflow-x: auto;
 `
 
 const Container2 = styled.div`
@@ -145,14 +147,16 @@ const PencilImage = styled.img`
     height: 25rem;
 `;
 
-const Title = styled.div`
+const Title = styled.a`
     width: 27.8125rem;
     height: 14.125rem;
     color: #CE838E;
     text-align: center;
     font-family: "Passion One";
-    font-size: 3.75rem;
+    font-size: 2.75rem;
     text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
 `
 
 const Byline = styled.div`
@@ -210,19 +214,13 @@ const ArticleContainer = styled.div`
     height: 34.5rem;
     color: #000;
     font-family: Baskerville;
-    font-size: 0.75rem;
+    font-size: 1rem;
     text-align: left;
     overflow-y: auto;
 
 `
 
 const Slide3 = ({ props }) => {
-
-    const {
-        article_title = "HEADLINE CAN GO HERE HERE IS HEADLINE SPACE",
-        article_url,
-        article_byline = "Anglina Alkhouri",
-    } = props || {};
 
     return (
         <Background>
@@ -235,11 +233,11 @@ const Slide3 = ({ props }) => {
                     <Page1 />
                     <Page2 />
                     <Page3>
-                        <Title>
-                            {article_title}
+                        <Title href={props.article_url} target="_blank">
+                            {props.article_title}
                         </Title>
                         <Byline>
-                            {article_byline}
+                            {props.article_byline}
                         </Byline>
                         <LineContainer>
                             {[...Array(7)].map((_, index) => (
