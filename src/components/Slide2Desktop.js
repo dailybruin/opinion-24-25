@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-import BackgroundTextSVG from "../images/slide2bg.svg"; // Yellow text SVG
-import SlimeLeftBox from "../images/slide2box1slime.svg"; // Left box slime container
-import SlimeRightBox from "../images/slide2box2.svg"; // Right box slime container
+import BackgroundTextSVG from "../images/slide2bg.svg"; 
+import SlimeLeftBox from "../images/slide2box1slime.svg";
+import SlimeRightBox from "../images/slide2box2.svg";
 
 const Background = styled.div`
   height: 100vh;
   width: 100%;
-  background-color: #FFE5B0; /* Yellow background */
+  background-color: #FFE5B0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,7 +17,6 @@ const Background = styled.div`
   position: relative;
 `;
 
-/* Overlay the yellow text SVG */
 const BackgroundText = styled.img`
   position: absolute;
   width: 100%;
@@ -35,62 +34,66 @@ const ContentContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   position: relative;
-  margin-top: 2rem;
+  margin-top: 4rem;
   z-index: 2;
 `;
 
-const BoxContainer = styled.div`
+const LeftBoxContainer = styled.div`
   position: relative;
-  flex: 1; /* Makes both boxes grow equally */
+  width: 60%; /* Adjusted to match the right box */
   height: 85%;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: url(${SlimeLeftBox}) center/contain no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
-`;
-
-/* Left Box */
-const LeftBoxContainer = styled(BoxContainer)`
-  background-image: url(${SlimeLeftBox});
-  height: 90%
-`;
-
-/* Right Box */
-const RightBoxContainer = styled(BoxContainer)`
-  background-image: url(${SlimeRightBox});
-  flex-direction: column; 
-  padding: 2rem;
-`;
-
-/* Image inside Left Box */
-const ImageContainer = styled.div`
-  width: 80%;  
-  height: 80%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
 `;
 
 const ArticleImage = styled.img`
-  width: 150%;
-  height: 100%;
-  object-fit: contain;
+  width: 88%; /* Adjusted to fit inside the brown border */
+  height: 84%; /* Adjusted to fit inside the brown border */
+  object-fit: contain; /* Ensures the image fits within the container */
+  position: absolute;
+  top: 44%; /* Move the image higher up */
+  left: 52%; /* Move the image slightly to the right */
+  transform: translate(-50%, -50%); /* Centers the image */
+  z-index: 2;
 `;
 
-/* Text inside Right Box */
-const TextContainer = styled.div`
-  width: 80%;
-  height: 78%;
+const ImageCredit = styled.div`
+  position: absolute;
+  bottom: 80px; /* Adjust as needed */
+  right: 80px; /* Adjust as needed */
+  font-family: "Baskervville", serif;
+  font-size: 0.8rem;
+  color: #4E3A24;
+  z-index: 5; /* Higher than the image to ensure it's on top */
+
+  padding: 2px 6px;
+  border-radius: 4px;
+`;
+
+const RightBoxContainer = styled.div`
+  position: relative;
+  width: 45%; /* Adjusted to match the left box */
+  height: 85%;
+  background: url(${SlimeRightBox}) center/contain no-repeat;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
+  padding: 2rem;
+  z-index: 2;
+`;
+
+const TextContainer = styled.div`
+  width: 80%;
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center text vertically */
+  align-items: center; /* Center text horizontally */
   overflow: hidden;
-  margin-top: -2rem; /* Move the whole text container up */
+  margin-top: -2rem;
 `;
 
 const Title = styled.div`
@@ -115,42 +118,28 @@ const ArticleText = styled.div`
   text-align: justify;
 `;
 
-
-
-/* Image Credit */
-const ImageCredit = styled.div`
-  position: absolute;
-  bottom: 5px;
-  font-family: "Baskervville", serif;
-  font-size: 0.8rem;
-  color: #4E3A24;
-  z-index: -1;
-`;
-
-
 const Slide2Desktop = ({ props }) => {
   return (
     <Background>
-      {/* Yellow Text Background */}
       <BackgroundText src={BackgroundTextSVG} alt="Background Text" />
 
-      {/* Content */}
       <ContentContainer>
-        {/* Left Box (Image inside slime container) */}
+        {/* Left Box (Slime outline, image inside) */}
         <LeftBoxContainer>
-          <ImageContainer>
-            <ArticleImage src={props.article_image} alt="Article Image" />
-          </ImageContainer>
-          <ImageCredit>({props.illustration_byline})</ImageCredit>
+          <ArticleImage src={props.article_image} alt="Article Image" />
+          {/* Image Credit inside LeftBoxContainer */}
+          <ImageCredit>(Nim Seshradi/ Cartoons Director)</ImageCredit>
         </LeftBoxContainer>
 
-        {/* Right Box (Text inside slime container) */}
+        {/* Right Box (Slime outline, text inside) */}
         <RightBoxContainer>
           <TextContainer>
             <Title>{props.article_title}</Title>
-            <ArticleText>{props.article_text.split('/n').map((line, index) => (
-              <p key={index}>{line}</p>
-          ))}</ArticleText>
+            <ArticleText>
+              {props.article_text.split("/n").map((line, index) => (
+                <p key={index}>{line}</p>
+              ))}
+            </ArticleText>
           </TextContainer>
         </RightBoxContainer>
       </ContentContainer>
@@ -159,4 +148,5 @@ const Slide2Desktop = ({ props }) => {
 };
 
 export default Slide2Desktop;
+
 
