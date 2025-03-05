@@ -87,29 +87,31 @@ const TopBox = styled.div`
 
 /* Image Wrapper */
 const ArticleImageWrapper = styled.div`
-  width: 90%;
-  height: 90%;
+  width: 92%;
+  height: 92%;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  z-index:1;
+  z-index: 1;
 `;
 
 /* Image */
 const ArticleImage = styled.img`
-  width: 75%;
-  height: auto%;
+  width: 80%;
+  height: auto;
   max-height: 100%;
   object-fit: contain;
-  margin-top:-3.5rem;
+  margin-top: -4rem; /* Move the image higher up */
+  margin-left: 1rem; /* Move the image slightly to the right */
   display: block;
 `;
 
 /* Image Credit */
 const ImageCredit = styled.div`
   position: absolute;
-  bottom: 5px;
+  bottom: 60px;
+  right: 60px;
   font-family: "Baskervville", serif;
   font-size: 0.8rem;
   color: #4E3A24;
@@ -190,7 +192,8 @@ const Slide2Mobile = ({ props }) => {
             <ArticleImageWrapper>
               <ArticleImage src={props.article_image} alt="Article Image" />
             </ArticleImageWrapper>
-            <ImageCredit>({props.illustration_byline})</ImageCredit>
+            {/* Hardcoded Image Credit */}
+            <ImageCredit>(Nim Seshradi/ Cartoons Director)</ImageCredit>
           </TopBox>
           <SlimeTop src={SlimeTopBox} alt="Top Box Slime" />
         </TopBoxContainer>
@@ -198,9 +201,11 @@ const Slide2Mobile = ({ props }) => {
         {/* Bottom Text Box */}
         <BottomBoxContainer>
           <BottomBox>
-            <ArticleText>{props.article_text.split('/n').map((line, index) => (
-              <p key={index}>{line}</p>
-          ))}</ArticleText>
+            <ArticleText>
+              {props.article_text.split("/n").map((line, index) => (
+                <p key={index}>{line}</p>
+              ))}
+            </ArticleText>
           </BottomBox>
           <SlimeBottom src={SlimeBottomBox} alt="Bottom Box Slime" />
         </BottomBoxContainer>
