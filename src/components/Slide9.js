@@ -113,10 +113,11 @@ const ArticleContainer = styled.div`
 `
 
 const ImageContainer = styled.div`
-    width: 44.03106rem;
-    height: 57.78638rem;
+    width: 50.03106rem;
+    height: 59.78638rem;
     background: url(${(props) => props.image});
     background-repeat: no-repeat;
+    background-size: 102%;
     position: relative;
     left: 0rem;
     top: 0rem;
@@ -127,7 +128,7 @@ const BackgroundImage1 = styled.div`
     height: 19.85413rem;
     transform: rotate(88deg);
     background-cover: contain;
-    background: url(${(props) => props.image}) bottom right / 100% 291.055% no-repeat;;
+    background: url(${(props) => props.image}) bottom right / 100% 291.055% no-repeat;
     position: absolute;
     left: 15rem;
     z-index: -1;
