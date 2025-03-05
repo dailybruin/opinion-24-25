@@ -109,7 +109,17 @@ function App() {
                 {screenWidth < 900 ? (
                     <>
                         <Landing credits={data.landing_credits} />
-                        <Letter letter={data.letter[0]} />    
+                        <Letter letter={data.letter[0]} /> 
+                        <Slide1_Mobile props={data.articles[0]} />       
+                        <Slide2_Mobile props={data.articles[1]} />     
+                        <Slide3_Mobile props={data.articles[2]} />     
+                        <Slide4_Mobile props={data.articles[3]} />     
+                        <Slide5_Mobile props={data.articles[4]} />     
+                        <Slide6_Mobile props={data.articles[5]} />     
+                        <Slide7_Mobile props={data.articles[6]} />     
+                        <Slide9_Mobile props={data.articles[8]} />     
+                        <Slide10_Mobile props={data.articles[9]} />     
+                        <Slide11_Mobile props={data.articles[10]} />   
                         <FooterMobile />
                     </>
                 ) : (
