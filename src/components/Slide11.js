@@ -190,7 +190,7 @@ const Credit = styled.div`
     color: #69937D;
     font-family: Baskerville;
     font-size: 1rem;
-    width: auto;
+    width: 100%;
     height: 1.5625rem;
     background: rgba(255, 255, 255, 0.44);
     position: absolute;
@@ -233,12 +233,12 @@ const Slide11 = ({ props }) => {
 
     const {
         article_img = [props.article_image_1, props.article_image_2, props.article_image_3],
-        illustration_byline = [],
+        illustration_byline = [props.image_byline_1,props.image_byline_2, props.image_byline_3 ],
     } = props || {};
 
     const images = article_img.map((img, index) => ({
         image: img,
-        credit: illustration_byline[index] || "(Courtesy of NAME NAME/place)"
+        credit: illustration_byline[index]
     }));
 
     return (
@@ -248,7 +248,7 @@ const Slide11 = ({ props }) => {
                 <Title>{props.article_title}</Title>
             </TitleContainer>
             <Container>
-             <PhotoCarousel images={images.length > 0 ? images : [{ image: "", credit: "(Courtesy of NAME NAME/place)" }]}/>
+             <PhotoCarousel images={images}/>
              <ContentContainer>
                 <BylineContainer>
                     <img src={BylineIcon} />

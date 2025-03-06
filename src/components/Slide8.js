@@ -66,6 +66,7 @@ const Text = styled.div`
   text-align: left;
   width: 100%;
   overflow-y: auto;
+  font-family: "Baskervville", serif;
 `;
 
 const SmallBrickWall = styled.svg`

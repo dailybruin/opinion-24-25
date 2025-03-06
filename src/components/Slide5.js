@@ -20,6 +20,7 @@ const ContentWrapper = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
+  left: 15%;
 `;
 
 // Bubbles container sits to the left of phone, anchored at roughly 60vw
@@ -31,7 +32,7 @@ const BubbleContainer = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
-  left: calc(75vw - 446px - 679px - 20px); /* phone at 75vw - phone width - bubbles width - buffer space */
+  left: -5%;
   top: 50%;
   transform: translateY(-50%);
 `;
@@ -40,12 +41,12 @@ const BubbleContainer = styled.div`
 const BubbleText = styled.div`
   position: absolute;
   top: 12%;
-  left: 10%;
   font-family: "Passion One", sans-serif;
   font-size: 2.5rem;
   font-weight: bold;
   color: white;
   text-transform: uppercase;
+  padding: 0.5em;
 `;
 
 const NameText = styled.div`
@@ -68,7 +69,7 @@ const PhoneContainer = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
-  left: calc(75vw - 223px); /* Center the phone horizontally at 75vw */
+  left: 50%; /* Center the phone horizontally at 75vw */
   top: 50%;
   transform: translateY(-50%);
   display: flex;

@@ -222,13 +222,13 @@ const PhotoCarousel = ({ images }) => {
         <LeftArrow />
       </LeftButton>
 
-      <ImageContainer image={images[currentIndex]} />
+      <ImageContainer image={images[currentIndex]?.image || "https://via.placeholder.com/600x400"} />
 
       <RightButton onClick={nextImage} disabled={currentIndex === images.length - 1}>
         <RightArrow />
       </RightButton>
 
-      <Credit>{images[currentIndex].credit}</Credit>
+      <Credit>{images[currentIndex]?.credit || "(Courtesy of NAME NAME/place)"}</Credit>
     </CarouselContainer>
   );
 };
