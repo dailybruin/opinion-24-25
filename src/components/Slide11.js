@@ -190,7 +190,7 @@ const Credit = styled.div`
     color: #69937D;
     font-family: Baskerville;
     font-size: 1rem;
-    width: 100%;
+    width: auto;
     height: 1.5625rem;
     background: rgba(255, 255, 255, 0.44);
     position: absolute;
@@ -198,6 +198,7 @@ const Credit = styled.div`
     justify-content: center;
     bottom: 1rem;
     display: flex;
+    padding: 0 1rem;
 `
 
 const PhotoCarousel = ({ images }) => {
@@ -233,13 +234,20 @@ const Slide11 = ({ props }) => {
 
     const {
         article_img = [props.article_image_1, props.article_image_2, props.article_image_3],
-        illustration_byline = [props.image_byline_1,props.image_byline_2, props.image_byline_3 ],
+        image_byline_1,
+        image_byline_2,
+        image_byline_3,
+        illustration_byline,
     } = props || {};
 
+    const bylineArray = Array.isArray(illustration_byline)
+        ? illustration_byline
+        : [image_byline_1, image_byline_2, image_byline_3];
+
     const images = article_img.map((img, index) => ({
-        image: img,
-        credit: illustration_byline[index]
-    }));
+          image: img,
+          credit: bylineArray[index] || illustration_byline || "No credit available",
+      }));
 
     return (
         <Background>
@@ -271,5 +279,8 @@ const Slide11 = ({ props }) => {
         </Background>
     )
 }
+
+
+
 
 export default Slide11;
