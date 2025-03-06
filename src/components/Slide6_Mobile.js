@@ -60,6 +60,11 @@ const PhotoBox = styled.div`
     width: 90px;
     height: 90px;
     background-color: #FBE6B6;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;  
+    }
 `;
 
 const Credit = styled.div`
@@ -83,9 +88,15 @@ const Slide6Mobile = ({props}) => {
           ))}
             </TextContainer>
             <PhotoBoxContainer>
-                <PhotoBox />
-                <PhotoBox />
-                <PhotoBox />
+                    <PhotoBox>
+                            <img src={props.article_image_1} alt="Image 1" />
+                        </PhotoBox>
+                        <PhotoBox>
+                            <img src={props.article_image_2} alt="Image 2" />
+                        </PhotoBox>
+                        <PhotoBox>
+                            <img src={props.article_image_3} alt="Image 3" />
+                        </PhotoBox>
             </PhotoBoxContainer>
             <Credit>(Yeejee Kim/Daily Bruin staff)</Credit>
         </SlideWrapper>

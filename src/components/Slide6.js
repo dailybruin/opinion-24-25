@@ -64,12 +64,26 @@ const Map = styled.img`
 
 const Title = styled.div`
     position: absolute;
-    top: 39%;
+    top: 2em;
     width: 100%;
     text-align: center;
     color: #FBE6B6;
     font-family: "Passion One", sans-serif;
     font-size: 3.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: left;
+`;
+
+const ByLine = styled.div`
+    position: absolute;
+    top: 12em;
+    left: -9em;
+    width: 100%;
+    text-align: center;
+    color: #FBE6B6;
+    font-family: "Passion One", sans-serif;
+    font-size: 2em;
     font-weight: bold;
     text-transform: uppercase;
 `;
@@ -118,6 +132,7 @@ const Slide6 = ({props}) => {
                     <Title>
                         {props.article_title}
                     </Title>
+                    <ByLine>{props.article_byline}</ByLine>
                     <Map src={MapImage} alt="World Map" />
                     <PhotoBoxContainer>
                         <PhotoBox>

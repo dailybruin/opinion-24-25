@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import { SlideOne, SlideTwo, SlideThree, SlideFour, SlideFive, SlideSix, SlideSeven, SlideEight, SlideNine, SlideTen, SlideEleven } from "./components/Slides";
 import Nav from "./components/Nav";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -25,6 +24,7 @@ import Slide4_Mobile from "./components/Slide4_Mobile.js";
 import Slide5_Mobile from "./components/Slide5_Mobile.js";
 import Slide6_Mobile from "./components/Slide6_Mobile.js";
 import Slide7_Mobile from "./components/Slide7_Mobile.js";
+import Slide8_Mobile from "./components/SlideMobile8_js.js";
 import Slide9_Mobile from "./components/Slide9_Mobile.js";
 import Slide10_Mobile from "./components/Slide10_Mobile.js";
 import Slide11_Mobile from "./components/Slide11_Mobile.js";
@@ -116,7 +116,8 @@ function App() {
                         <Slide4_Mobile props={data.articles[3]} />     
                         <Slide5_Mobile props={data.articles[4]} />     
                         <Slide6_Mobile props={data.articles[5]} />     
-                        <Slide7_Mobile props={data.articles[6]} />     
+                        <Slide7_Mobile props={data.articles[6]} />  
+                        <Slide8_Mobile props={data.articles[7]} />    
                         <Slide9_Mobile props={data.articles[8]} />     
                         <Slide10_Mobile props={data.articles[9]} />     
                         <Slide11_Mobile props={data.articles[10]} />   
@@ -135,6 +136,7 @@ function App() {
                         {currentSlide === 1 ? (
                           <>
                           <Landing credits={data.landing_credits} />
+                          <Letter letter={data.letter[0]} />
                           </>
                         ) : ( null )}
                         <div
@@ -146,26 +148,25 @@ function App() {
                                 width: '100%',
                                 height: '100vh',
                                 scrollBehavior: 'smooth',
+                                padding: 0,
+                                margin: 0,
+                                overflowX: 'auto', 
+                                overflowY: 'hidden',
                             }}
                             onScroll={handleScroll}
                         >
                             <div
                                 style={{
                                     width: '100vw',
-                                    height: '100vh',
-                                    paddingTop: 270,
+                                    paddingTop: 0,
                                     flexShrink: 0,
-                                    // backgroundColor: bgColor,
+                                    backgroundColor: '#F3D38C99',
                                     // color: textColor,
                                     scrollSnapAlign: 'start',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
+                                   
                                 }}
                             >
-                                {/* <Landing credits={data.landing_credits} /> */}
-                                <Letter letter={data.letter[0]} />
+                                <p></p>
                             </div>
                             {slides.slice(1).map((SlideComponent, index) => (
                                 <div
@@ -177,6 +178,8 @@ function App() {
                                         backgroundColor: bgColor,
                                         color: textColor,
                                         scrollSnapAlign: 'start',
+                                        display: 'flex',
+                                
                                     }}
                                 >
                                     <SlideComponent props={data.articles[index]} />

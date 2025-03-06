@@ -103,7 +103,7 @@ const Slide8 = ({props}) => {
       <ContentContainer>
         <ImageSection>
           <IllustrationContainer>
-            <img src={leftImage} alt="Left section illustration" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+            <img src={props.article_image} alt="Left section illustration" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
           </IllustrationContainer>
           <SmallBrickWall width="475" height="71" viewBox="0 0 475 71" fill="none">
             <rect x="37" y="18" width="406" height="53" fill="#C3C0C0"/>
