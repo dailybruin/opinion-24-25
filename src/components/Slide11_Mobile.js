@@ -167,8 +167,8 @@ const Button = styled.button`
   justify-content: center;
 
   svg {
-    width: 1.1rem;
-    height: 1.1rem;
+    width: 1.5rem;
+    height: 1.5rem;
     fill: black; 
     transition: fill 0.3s ease;
   }
@@ -180,13 +180,13 @@ const Button = styled.button`
 `
 
 const LeftButton = styled(Button)`
-  left: 1rem;
+  left: .2rem;
   opacity: ${(props) => (props.disabled ? "0" : "1")};
   pointer-events: ${(props) => (props.disabled ? "none" : "auto")};
 `;
 
 const RightButton = styled(Button)`
-  right: 1rem;
+  right: .2rem;
   opacity: ${(props) => (props.disabled ? "0" : "1")};
   pointer-events: ${(props) => (props.disabled ? "none" : "auto")};
 `;

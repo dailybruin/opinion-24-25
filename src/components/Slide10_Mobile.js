@@ -183,7 +183,7 @@ const Slide10_Mobile = ({ props }) => {
                         {props.article_byline}
                     </Byline>
                 </TopRow>
-                <ImageContainer image={props.article_img} />
+                <ImageContainer image={props.article_image} />
                 <Credit>{props.illustration_byline}</Credit>
                 <TagContainer>
                     <TagColumn>
