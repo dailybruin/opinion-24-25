@@ -42,7 +42,7 @@ const Landing = ({ credits }) => {
       <Video autoPlay loop muted playsInline>
         <source src={landing_video} type="video/mp4" />
       </Video>
-      <Credits>{credits}</Credits>
+      <Credits>(Desiree Gonzalez/Daily Bruin)</Credits>
     </Container>
   );
 };

@@ -14,7 +14,7 @@ const Background = styled.div`
 const BackgroundContainer = styled.div`
     height: 90vh;
     width: 80%;
-    margin-bottom: -10%;
+    margin-top: 5em;
     margin-left: 20%;
     background: #547965;
     border-radius: 3.125rem 3.125rem;
@@ -22,7 +22,7 @@ const BackgroundContainer = styled.div`
 `
 
 const ImageContainer = styled.div`
-    height: 75vh;
+    height: 65vh;
     width: 80%;
     margin-left: 15%;
     background: url(${Worth}); 
@@ -118,8 +118,8 @@ const Byline = styled.div`
 `
 const Credits = styled.div`
     position: absolute;
-    bottom: 2%;
-    left: 20%;  
+    bottom: 4em;
+    right: 2em;
     padding: 1em;
     font-family: Baskerville;
     font-size: 1rem;

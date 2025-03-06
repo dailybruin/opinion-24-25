@@ -89,12 +89,13 @@ const Credit = styled.div`
 `;
 
 const Title = styled.div`
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: #393769;
   text-align: right;
   margin-top: 1rem;
   font-weight: 400;
   font-family: "Passion One";
+  height: fit-content;
 `;
 
 const Slide8 = ({props}) => {
