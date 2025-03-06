@@ -52,6 +52,20 @@ const TitleText = styled.div`
   z-index: 4;
 `;
 
+const ArticleAuthor = styled.div`
+position: absolute;
+top: 20%;
+left: 50%;
+transform: translateX(-50%);
+font-family: "Passion One", sans-serif;
+font-size: 1.3rem;
+font-weight: bold;
+color: #4E3A24;
+text-align: center;
+width: 75%;
+z-index: 4;
+`;
+
 /* Main Content Stacked */
 const ContentContainer = styled.div`
   width: 90%;
@@ -177,18 +191,17 @@ const SlimeBottom = styled.img`
 const Slide2Mobile = ({ props }) => {
   return (
     <Background>
-      {/* Yellow Text Background */}
       <BackgroundText src={BackgroundTextSVG} alt="Background Text" />
 
-      {/* Title Box */}
       <TitleBox src={WhiteTitleBoxSVG} alt="Title Box" />
       <TitleText>{props.article_title}</TitleText>
+      <ArticleAuthor> {props.article_byline}</ArticleAuthor>
 
       {/* Main Content */}
       <ContentContainer>
-        {/* Top Image Box */}
         <TopBoxContainer>
           <TopBox>
+  
             <ArticleImageWrapper>
               <ArticleImage src={props.article_image} alt="Article Image" />
             </ArticleImageWrapper>

@@ -71,12 +71,12 @@ const ArticleImage = styled.img`
 
 const ImageCredit = styled.div`
   position: absolute;
-  bottom: 80px; /* Adjust as needed */
-  right: 80px; /* Adjust as needed */
+  bottom: 95px; 
+  right: 80px; 
   font-family: "Baskervville", serif;
   font-size: 0.8rem;
   color: #4E3A24;
-  z-index: 5; /* Higher than the image to ensure it's on top */
+  z-index: 5; 
   padding: 2px 6px;
   border-radius: 4px;
 `;
@@ -127,6 +127,16 @@ const Title = styled.div`
   width: 100%;
 `;
 
+const ArticleAuthor = styled.div`
+  font-family: "Passion One", sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #4E3A24;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  width: 100%;
+`;
+
 const ArticleText = styled.div`
   font-family: "Baskervville", serif;
   font-size: 1rem;
@@ -158,6 +168,7 @@ const Slide2Desktop = ({ props }) => {
         <RightBoxContainer>
           <TextContainer>
             <Title>{props.article_title}</Title>
+            <ArticleAuthor> {props.article_byline}</ArticleAuthor>
             <ArticleText>
               {props.article_text.split("/n").map((line, index) => (
                 <p key={index}>{line}</p>
