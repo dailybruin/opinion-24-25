@@ -122,7 +122,7 @@ const Tag = styled.div`
 const ImageContainer = styled.div`
     width: 37.625rem;
     height: 25rem;
-    aspect-ratio: 301/200;
+    background-size: cover;
     background-image: url(${(props) => props.image});
     box-shadow: rgba(56, 55, 101, 0.70) .75rem .75rem;
     margin-top: 1rem;

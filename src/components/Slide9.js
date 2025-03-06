@@ -32,7 +32,7 @@ const Title = styled.a`
     display: flex;
 `
 const Byline = styled.div`
-    width: 20.48163rem;
+    width: 15.48163rem;
     height: 3.46494rem;
     border-radius: 0.9375rem;
     background: #B4CCFB;
@@ -109,8 +109,8 @@ const ArticleContainer = styled.div`
     flex-direction: column; 
     align-items: flex-start;
     justify-content: flex-start;
-    padding: 2rem;  
-    box-sizing: border-box;
+    padding: 4rem 2rem;  
+    
     overflow-y: auto; 
     text-align: left;
 `
