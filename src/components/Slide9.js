@@ -202,7 +202,7 @@ const Slide9 = ({ props }) => {
                     {props.article_byline}
                 </Byline>
             </TitleBylineContainer>
-            <ImageContainer image={props.article_img} />
+            <ImageContainer image={props.article_image} />
             <Credit>
                 {props.illustration_byline}
             </Credit>
