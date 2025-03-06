@@ -115,7 +115,6 @@ const ArticleContainer = styled.div`
 const TextContainer = styled.div`
     width: 25.50906rem;
     height: 30.52756rem;
-    flex-shrink: 0;
     color: #000;
     font-family: Baskerville;
     font-size: 1rem;
@@ -127,7 +126,7 @@ const TextContainer = styled.div`
     position: absolute;
     z-index: 999;
     top: 53%;
-    left: 33%;
+    left: 35em;
     transform: translate(-50%, -50%);
 `
 
