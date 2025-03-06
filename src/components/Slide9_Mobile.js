@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Slide9Image1 from "../images/Slide9Image1.png"
 import Slide9Image2 from "../images/Slide9Image2.png"
 
 const Background = styled.div`
@@ -101,21 +100,18 @@ const ArticleContainer = styled.div`
     text-align: left;
     box-sizing: border-box;
     overflow-y: auto;
+    flex-direction: column;
 `
 
 const ImageContainer = styled.div`
-    height: 50.08463rem;
-    aspect-ratio: 610.60/801.35;
+    height: 60.08463rem;
+    aspect-ratio: 710.60/801.35;
     background: url(${(props) => props.image});
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    top: 90%;  
-    left: 35%;
-    transform: translateX(-50%); /* 👈 Centers it horizontally */
-    margin-top: 2rem; /* Adjust spacing */
+    transform: translate(-8%, -5%); /* 👈 Centers it horizontally */
 
 `
 
@@ -180,7 +176,7 @@ const Slide9 = ({ props }) => {
                     </Circle1>
                 </Circle2>
             </CircleContainer>
-            <ImageContainer image={props.article_img} />
+            <ImageContainer image={props.article_image} />
             <Credit>
                 {props.illustration_byline}
             </Credit>

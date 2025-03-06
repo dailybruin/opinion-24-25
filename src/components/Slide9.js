@@ -9,10 +9,8 @@ const Background = styled.div`
     width: 100%;
     background: #383765;
     display: flex;
-    overflow: hidden;
     justify-content: space-between;
     position: relative;
-    overflow-x: auto;
 `
 
 const Title = styled.div`
@@ -60,8 +58,6 @@ const CircleContainer = styled.div`
     justify-content: center;
     position: relative;
     left: 35rem;
-    pointer-events: none;
-
 `
 
 const Circle = styled.div`
