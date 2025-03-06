@@ -25,6 +25,7 @@ import Slide4_Mobile from "./components/Slide4_Mobile.js";
 import Slide5_Mobile from "./components/Slide5_Mobile.js";
 import Slide6_Mobile from "./components/Slide6_Mobile.js";
 import Slide7_Mobile from "./components/Slide7_Mobile.js";
+import Slide8_Mobile from "./components/Slide8_Mobile.js";
 import Slide9_Mobile from "./components/Slide9_Mobile.js";
 import Slide10_Mobile from "./components/Slide10_Mobile.js";
 import Slide11_Mobile from "./components/Slide11_Mobile.js";
@@ -116,7 +117,8 @@ function App() {
                         <Slide4_Mobile props={data.articles[3]} />     
                         <Slide5_Mobile props={data.articles[4]} />     
                         <Slide6_Mobile props={data.articles[5]} />     
-                        <Slide7_Mobile props={data.articles[6]} />     
+                        <Slide7_Mobile props={data.articles[6]} />    
+                        <Slide8_Mobile props={data.articles[7]} />      
                         <Slide9_Mobile props={data.articles[8]} />     
                         <Slide10_Mobile props={data.articles[9]} />     
                         <Slide11_Mobile props={data.articles[10]} />   
