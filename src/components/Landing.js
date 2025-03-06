@@ -24,7 +24,7 @@ const Video = styled.video`
 const Credits = styled.div`
 position: absolute;
 bottom: 0px; 
-width: 150%;
+width: 50%;
 color: white;
 padding: 1em;
 font-family: Arial, sans-serif;
@@ -33,7 +33,7 @@ font-weight: 400;
 line-height: 28.91px;
 z-index: 1; 
 text-align: right;
-margin-left: -42em;
+margin-right: -15em;
 `;
 
 const Landing = ({ credits }) => {

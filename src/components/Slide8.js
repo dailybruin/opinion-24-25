@@ -89,13 +89,14 @@ const Credit = styled.div`
 `;
 
 const Title = styled.div`
-  font-size: 2.5rem;
+  font-size: 3.5vh;
   color: #393769;
   text-align: right;
-  margin-top: 1rem;
+  margin-top: 0.25rem;
   font-weight: 400;
   font-family: "Passion One";
   height: fit-content;
+  width: 100%;
 `;
 
 const Slide8 = ({props}) => {
@@ -158,7 +159,7 @@ const Slide8 = ({props}) => {
             <rect x="347" y="43" width="77" height="23" fill="#CA6F41"/>
             <rect x="17" y="44" width="76" height="23" fill="#CA6F41"/>
           </LargeBrickWall>
-          <Credit large style={{ fontFamily: 'Passion One', fontSize: '2rem' }}>{props.article_byline}</Credit>
+          <Credit large style={{ fontFamily: 'Passion One', fontSize: '1.5em' }}>{props.article_byline}</Credit>
           <Title>{props.article_title}</Title>
         </TextContainer>
       </ContentContainer>
