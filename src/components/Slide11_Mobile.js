@@ -203,6 +203,7 @@ const Credit = styled.div`
     justify-content: center;
     bottom: .5rem;
     display: flex;
+    padding: 0 1rem;
 `
 
 const PhotoCarousel = ({ images }) => {
@@ -235,15 +236,22 @@ const PhotoCarousel = ({ images }) => {
 
 const Slide11 = ({ props }) => {
 
-    const {
-        article_img = [props.article_image_1, props.article_image_2, props.article_image_3],
-        illustration_byline = []
-    } = props || {};
+  const {
+    article_img = [props.article_image_1, props.article_image_2, props.article_image_3],
+    image_byline_1,
+    image_byline_2,
+    image_byline_3,
+    illustration_byline,
+} = props || {};
 
-    const images = article_img.map((img, index) => ({
-        image: img,
-        credit: illustration_byline[index] || "(Courtesy of NAME NAME/place)"
-    }));
+const bylineArray = Array.isArray(illustration_byline)
+    ? illustration_byline
+    : [image_byline_1, image_byline_2, image_byline_3];
+
+const images = article_img.map((img, index) => ({
+      image: img,
+      credit: bylineArray[index] || illustration_byline || "No credit available",
+  }));
 
     return (
         <Background>

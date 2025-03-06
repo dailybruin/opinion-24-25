@@ -7,7 +7,7 @@ import BylineIcon from "../images/BylineIcon11.svg"
 import HeartIcon from "../images/HeartIcon.svg"
 
 const Background = styled.div`
-    padding-top: 1rem;
+    padding-top: 2rem;
     height: 100vh;
     width: 100%;
     background: #69937D;
@@ -15,12 +15,12 @@ const Background = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    overflow-x: auto;
+    overflow: auto;
 `
 
 const Container = styled.div`
     width: 81.5625rem;
-    height: 44.6875rem;
+    height: auto;
     border-radius: 2.4375rem;
     background: #A0BEAE;
     box-sizing: border-box;
